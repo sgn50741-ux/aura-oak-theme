@@ -1,0 +1,14 @@
+{%- assign r = rating | default: 0 -%}
+{%- assign full = r | floor -%}
+{%- assign half = r | minus: full -%}
+<span class="stars" aria-label="{{ r }} out of 5 stars">
+  {%- for i in (1..5) -%}
+    {%- if i <= full -%}
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    {%- elsif i == full | plus: 1 and half > 0 -%}
+      <svg viewBox="0 0 24 24" width="14" height="14"><defs><linearGradient id="hf{{forloop.index}}"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="#E7DFD3"/></linearGradient></defs><path fill="url(#hf{{forloop.index}})" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    {%- else -%}
+      <svg viewBox="0 0 24 24" fill="#E7DFD3" stroke="none" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    {%- endif -%}
+  {%- endfor -%}
+</span>
