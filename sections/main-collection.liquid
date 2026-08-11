@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="collection-head reveal">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<p>{{ collection.description }}</p>{%- endif -%}
+  </div>
+  <div class="collection-layout">
+    <aside class="filter-bar reveal">
+      {%- assign cat_tags = 'Candles,Diffusers,Home Fragrance,Gift Ideas,Accessories' | split: ',' -%}
+      <div class="filter-group">
+        <h4>Category</h4>
+        <ul class="filter-list">
+          {%- for tag in cat_tags -%}
+            {%- assign has = false -%}
+            {%- for t in current_tags -%}{%- if t == tag -%}{%- assign has = true -%}{%- endif -%}{%- endfor -%}
+            {%- assign new_tags = '' | split: '' -%}
+            {%- if has -%}
+              {%- for t in current_tags -%}{%- unless t == tag -%}{%- assign new_tags = new_tags | push: t -%}{%- endunless -%}{%- endfor -%}
+            {%- else -%}
+              {%- assign new_tags = current_tags | push: tag -%}
+            {%- endif -%}
+            {%- if new_tags.size > 0 -%}
+              <li><a href="/collections/{{ collection.handle }}/{{ new_tags | join: '+' }}" class="{% if has %}is-active{% endif %}"><span class="filter-check"></span>{{ tag }}</a></li>
+            {%- else -%}
+              <li><a href="/collections/{{ collection.handle }}" class="{% if has %}is-active{% endif %}"><span class="filter-check"></span>{{ tag }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- assign scent_tags = 'Woody,Warm,Fresh,Floral,Fruity' | split: ',' -%}
+      <div class="filter-group">
+        <h4>Scent family</h4>
+        <ul class="filter-list">
+          {%- for tag in scent_tags -%}
+            {%- assign has = false -%}
+            {%- for t in current_tags -%}{%- if t == tag -%}{%- assign has = true -%}{%- endif -%}{%- endfor -%}
+            {%- assign new_tags = '' | split: '' -%}
+            {%- if has -%}
+              {%- for t in current_tags -%}{%- unless t == tag -%}{%- assign new_tags = new_tags | push: t -%}{%- endunless -%}{%- endfor -%}
+            {%- else -%}
+              {%- assign new_tags = current_tags | push: tag -%}
+            {%- endif -%}
+            {%- if new_tags.size > 0 -%}
+              <li><a href="/collections/{{ collection.handle }}/{{ new_tags | join: '+' }}" class="{% if has %}is-active{% endif %}"><span class="filter-check"></span>{{ tag }}</a></li>
+            {%- else -%}
+              <li><a href="/collections/{{ collection.handle }}" class="{% if has %}is-active{% endif %}"><span class="filter-check"></span>{{ tag }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </aside>
+
+    <div>
+      <div class="collection-toolbar">
+        <span class="collection-count">{{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}</span>
+        <form method="get" action="{{ collection.url }}" class="collection-sort">
+          <select name="sort_by" class="sort-select" onchange="this.form.submit()">
+            {%- for option in collection.sort_options -%}
+              <option value="{{ option.value }}" {% if collection.sort_by == option.value %}selected{% endif %}>{{ option.name }}</option>
+            {%- endfor -%}
+          </select>
+          {%- for tag in current_tags -%}<input type="hidden" name="tag" value="{{ tag }}">{%- endfor -%}
+        </form>
+      </div>
+
+      {%- paginate collection.products by 12 -%}
+        <div class="product-grid">
+          {%- for product in collection.products -%}
+            {% render 'product-card', card_product: product %}
+          {%- else -%}
+            <p class="text-center" style="grid-column:1/-1;padding:64px 0">No products match your filters. <a href="{{ collection.url }}">Clear filters</a>.</p>
+          {%- endfor -%}
+        </div>
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination">
+            {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">←</a>{%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>
+              {%- else -%}<span class="{% if part.title == paginate.current_page %}current{% endif %}">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}<a href="{{ paginate.next.url }}">→</a>{%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}{ "name": "Collection page" }{% endschema %}
