@@ -1,0 +1,1 @@
+{ "sections": { "hero": { "type": "hero" }, "tiles": { "type": "category-tiles" }, "featured": { "type": "featured-products" }, "story": { "type": "story" }, "newsletter": { "type": "newsletter" } }, "order": ["hero", "tiles", "featured", "story", "newsletter"] }
