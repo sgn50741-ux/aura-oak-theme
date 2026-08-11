@@ -1,0 +1,40 @@
+{%- assign rating = card_product.metafields.aura.rating.value -%}
+<a href="{{ card_product.url }}" class="pcard reveal">
+  <div class="pcard-media">
+    {%- if card_product.featured_image -%}
+      <img src="{{ card_product.featured_image | image_url: width: 600 }}" alt="{{ card_product.featured_image.alt | escape }}" loading="lazy">
+    {%- else -%}
+      <div class="pcard-media--placeholder">A&O</div>
+    {%- endif -%}
+
+    <div class="pcard-badges">
+      {%- if card_product.tags contains 'Bestseller' -%}<span class="badge badge--dark">Bestseller</span>{%- endif -%}
+      {%- if card_product.tags contains 'New' -%}<span class="badge">New</span>{%- endif -%}
+      {%- if card_product.compare_at_price > card_product.price -%}<span class="badge">Sale</span>{%- endif -%}
+    </div>
+
+    {%- if card_product.available -%}
+      {%- assign first_available = card_product.selected_or_first_available_variant -%}
+      <div class="pcard-quick">
+        <button type="button" class="btn pcard-quick-btn" onclick="event.preventDefault(); event.stopPropagation(); window.addToCart({{ first_available.id }})">+ Quick add</button>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="pcard-vendor">{{ card_product.vendor }}</div>
+  <h3 class="pcard-title">{{ card_product.title }}</h3>
+  <div class="pcard-price">
+    {%- if card_product.compare_at_price > card_product.price -%}
+      <span class="price--sale">{{ card_product.price | money }}</span>
+      <span class="price--compare">{{ card_product.compare_at_price | money }}</span>
+    {%- else -%}
+      <span>{{ card_product.price | money }}</span>
+    {%- endif -%}
+  </div>
+  {%- if rating -%}
+    <div class="pcard-stars">
+      {% render 'stars', rating: rating.average %}
+      <span>{{ rating.average }} · {{ rating.count }}</span>
+    </div>
+  {%- endif -%}
+</a>
