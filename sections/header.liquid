@@ -1,0 +1,60 @@
+{%- if section.settings.announce != blank -%}
+  <div class="announce">{{ section.settings.announce }}</div>
+{%- endif -%}
+
+<header class="site-header">
+  <div class="container header-inner">
+    <button class="menu-toggle" aria-label="Menu">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a href="{{ routes.root_url }}" class="logo">Aura <em>&</em> Oak</a>
+    <nav class="nav">
+      {%- assign nav_links = linklists.main-menu.links -%}
+      {%- if nav_links.size == 0 -%}
+        {%- assign fallback = 'Candles|candles,Diffusers|diffusers,All Fragrance|all' | split: ',' -%}
+        {%- for item in fallback -%}
+          {%- assign parts = item | split: '|' -%}
+          {%- assign c = collections[parts[1]] -%}
+          <a href="{% if c %}{{ c.url }}{% else %}/collections/all/{{ parts[1] | capitalize }}{% endif %}" {% if c and c.handle == collection.handle %}class="is-active"{% endif %}>{{ parts[0] }}</a>
+        {%- endfor -%}
+        <a href="{{ routes.collections_url }}">Shop all</a>
+      {%- else -%}
+        {%- for link in nav_links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- endif -%}
+    </nav>
+    <div class="header-icons">
+      <a href="/search" aria-label="Search">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </a>
+      <a href="{{ routes.account_url }}" aria-label="Account">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </a>
+      <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Cart">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 3h2l2.5 13h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        <span class="cart-count" hidden data-cart-count>0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <button class="mobile-menu-close" aria-label="Close">×</button>
+  {%- assign nav_links = linklists.main-menu.links -%}
+  {%- if nav_links.size == 0 -%}
+    <a href="/collections/candles">Candles</a>
+    <a href="/collections/diffusers">Diffusers</a>
+    <a href="/collections">Home Fragrance</a>
+    <a href="/collections/all">Shop all</a>
+  {%- else -%}
+    {%- for link in nav_links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "text", "id": "announce", "label": "Announcement", "default": "Complimentary shipping on orders over $75 · Hand-poured in small batches" }
+  ]
+}
+{% endschema %}
