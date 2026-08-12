@@ -3,9 +3,8 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "The journal",
-        "heading": "Notes from the studio.",
-        "subheading": "Essays, rituals, and the occasional recipe."
+        "eyebrow": "The Ritual Journal",
+        "heading": "Notes on scent, space, and slowing down."
       }
     },
     "journal": {
