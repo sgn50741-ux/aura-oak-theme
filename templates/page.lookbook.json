@@ -4,15 +4,28 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Lookbook",
-        "heading": "Scenes from the studio."
+        "heading": "Lookbook"
       }
     },
     "lookbook": {
-      "type": "lookbook"
+      "type": "lookbook",
+      "settings": {
+        "heading": "Lookbook",
+        "subheading": "A visual journey through the world of Aura & Oak.",
+        "image_url_1": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=1200",
+        "caption_1": "Morning ritual",
+        "image_url_2": "https://images.unsplash.com/photo-1603001535220-3b9c4b8a5b8c?w=1200",
+        "caption_2": "Studio life",
+        "image_url_3": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200",
+        "caption_3": "Evening glow",
+        "image_url_4": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200",
+        "caption_4": "Natural materials",
+        "image_url_5": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200",
+        "caption_5": "Quiet moments",
+        "image_url_6": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200",
+        "caption_6": "The ritual"
+      }
     }
   },
-  "order": [
-    "hero",
-    "lookbook"
-  ]
+  "order": ["hero", "lookbook"]
 }
