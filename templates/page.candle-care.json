@@ -3,17 +3,16 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "Care guide",
-        "heading": "The ritual of burning.",
-        "subheading": "How to get the most from your candle \u2014 and a vessel that lives on."
+        "eyebrow": "Candle care",
+        "heading": "Get the most from every burn."
       }
     },
-    "content": {
-      "type": "candle-care-content"
+    "care": {
+      "type": "candle-care"
     }
   },
   "order": [
     "hero",
-    "content"
+    "care"
   ]
 }
