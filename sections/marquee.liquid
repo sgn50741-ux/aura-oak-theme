@@ -1,12 +1,14 @@
-
-<section class="marquee">
+<div class="marquee">
   <div class="marquee-track">
-    {%- assign items = section.settings.items | split: ',' -%}
     {%- for i in (1..2) -%}
-      {%- for item in items -%}
-        <span class="marquee-item">{{ item | strip }}</span>
-      {%- endfor -%}
+      <span class="marquee-item">Hand-poured in Portland ✦</span>
+      <span class="marquee-item">Small batch ✦</span>
+      <span class="marquee-item">100% soy wax ✦</span>
+      <span class="marquee-item">Phthalate-free ✦</span>
+      <span class="marquee-item">Hand-thrown ceramics ✦</span>
+      <span class="marquee-item">Refillable vessels ✦</span>
     {%- endfor -%}
   </div>
-</section>
-{% schema %}{"name":"Marquee","settings":[{"type":"text","id":"items","label":"Items (comma-separated)","default":"Hand-poured in Portland,Small batch,100% soy wax,Phthalate-free,Refillable vessels"}],"presets":[{"name":"Marquee"}]}{% endschema %}
+</div>
+
+{% schema %}{ "name": "Marquee", "presets": [{ "name": "Marquee" }] }{% endschema %}
