@@ -1,57 +1,44 @@
-
-<section class="page-content">
+<section class="section">
   <div class="container">
-    <div class="reveal">
-      <h2>Partner with us</h2>
-      <p>We work with a curated selection of retailers who share our values — independent shops, boutique hotels, and design-forward spaces that care about the details. If that sounds like you, we'd love to hear from you.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Wholesale</span>
+      <h2>Bring Aura & Oak to your space.</h2>
+      <p>We partner with select retailers who share our commitment to quality, craftsmanship, and mindful living.</p>
     </div>
-
+    
     <div class="wholesale-benefits stagger">
-      <div class="benefit">
-        <div class="benefit-icon">✦</div>
-        <h4>50% opening order</h4>
-        <p>Competitive wholesale pricing on all products. Minimum opening order of $500.</p>
+      <div class="benefit-card">
+        <h4>Minimum Order</h4>
+        <p>$500 initial order, $250 reorders. Flexible terms for established accounts.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">◐</div>
-        <h4>Net 30 terms</h4>
-        <p>Flexible payment terms for established accounts. We make it easy to work with us.</p>
+      <div class="benefit-card">
+        <h4>Exclusive Scents</h4>
+        <p>Access to wholesale-exclusive fragrances and limited editions not available in our retail shop.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">◈</div>
-        <h4>Marketing support</h4>
-        <p>Product photography, display materials, and staff training. We're invested in your success.</p>
+      <div class="benefit-card">
+        <h4>Marketing Support</h4>
+        <p>Comprehensive product training, display materials, and co-op marketing opportunities.</p>
       </div>
-    </div>
-
-    <div class="page-split reveal" style="margin:64px 0">
-      <div class="page-split-media reveal-clip">
-        {%- if section.settings.image_url != blank -%}
-          <img src="{{ section.settings.image_url }}" alt="Wholesale" loading="lazy">
-        {%- endif -%}
+      <div class="benefit-card">
+        <h4>Net 30 Terms</h4>
+        <p>Standard net 30 payment terms for approved accounts. Quick pay discount available.</p>
       </div>
-      <div class="page-split-content">
-        <span class="eyebrow">What we offer</span>
-        <h2>More than products</h2>
-        <p>We don't just sell candles. We partner with retailers to create an experience. That means beautiful displays, trained staff who can tell the story, and a commitment to your success. We visit every account at least once a year, and we're always a phone call away.</p>
-        <p>Our current retail partners include over 200 shops across North America, from small boutiques in Brooklyn to design-forward hotels in Copenhagen.</p>
+      <div class="benefit-card">
+        <h4>Free Shipping</h4>
+        <p>Complimentary shipping on all wholesale orders over $500 within the continental US.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Dedicated Support</h4>
+        <p>Personal account manager and priority customer service for all wholesale partners.</p>
       </div>
     </div>
-
-    <div class="reveal" style="margin-top:64px">
-      <h2>Apply</h2>
-      <p>Send us a note at <a href="mailto:wholesale@auraandoak.com">wholesale@auraandoak.com</a> with your shop name, location, website (if applicable), and a little about your business. We review applications weekly and respond within 5 business days.</p>
-      <p style="margin-top:24px"><a href="/pages/contact" class="btn btn--ghost">Get in touch</a></p>
+    
+    <div class="text-center reveal" style="margin-top:64px">
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:16px">Ready to apply?</h3>
+      <p style="color:var(--ink-soft);margin-bottom:24px">Email us at wholesale@auraandoak.com with your business information and we'll be in touch within 2 business days.</p>
+      <a href="mailto:wholesale@auraandoak.com" class="btn btn--primary btn--large">Apply for wholesale</a>
     </div>
   </div>
 </section>
 
-{% schema %}
-{
-  "name": "Wholesale content",
-  "settings": [
-    { "type": "text", "id": "image_url", "label": "Image URL" }
-  ],
-  "presets": [{ "name": "Wholesale content" }]
-}
-{% endschema %}
+{% schema %}{ "name": "Wholesale", "presets": [{ "name": "Wholesale" }] }{% endschema %}
