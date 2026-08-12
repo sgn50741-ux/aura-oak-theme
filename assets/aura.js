@@ -247,3 +247,25 @@
     });
   }
 })();
+
+  /* ===== Mega menu: keep open while moving between trigger and menu ===== */
+  $$('.nav-item.has-mega').forEach(item => {
+    let timeout;
+    const menu = $('.mega-menu', item);
+    if (!menu) return;
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      item.classList.add('is-open');
+    });
+    item.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => item.classList.remove('is-open'), 120);
+    });
+  });
+
+  /* ===== Sticky header scroll state ===== */
+  const headerEl = $('[data-header]');
+  if (headerEl) {
+    const onScroll = () => headerEl.classList.toggle('is-scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
