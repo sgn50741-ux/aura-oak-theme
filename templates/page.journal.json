@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "The journal",
+        "heading": "Notes from the studio.",
+        "subheading": "Essays, rituals, and the occasional recipe."
+      }
+    },
+    "journal": {
+      "type": "ritual-journal"
+    }
+  },
+  "order": [
+    "hero",
+    "journal"
+  ]
+}
