@@ -1,57 +1,65 @@
 <section class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Shipping & returns</span>
-      <h2>Everything you need to know.</h2>
+    <div class="shipping-intro reveal">
+      <h2>{{ section.settings.heading }}</h2>
     </div>
     
     <div class="shipping-grid">
-      <div class="shipping-section reveal">
-        <h3>Shipping</h3>
+      <div class="shipping-info reveal">
+        <h3>{{ section.settings.shipping_heading }}</h3>
+        <div class="rte">{{ section.settings.shipping_text }}</div>
+        
         <table class="shipping-table">
-          <tr>
-            <th>Method</th>
-            <th>Time</th>
-            <th>Cost</th>
-          </tr>
-          <tr>
-            <td>Standard (US)</td>
-            <td>3-5 business days</td>
-            <td>Free over $75</td>
-          </tr>
-          <tr>
-            <td>Express (US)</td>
-            <td>2 business days</td>
-            <td>$15</td>
-          </tr>
-          <tr>
-            <td>Overnight (US)</td>
-            <td>1 business day</td>
-            <td>$25</td>
-          </tr>
-          <tr>
-            <td>International</td>
-            <td>7-14 business days</td>
-            <td>Calculated at checkout</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Delivery Time</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'shipping_option' -%}
+                <tr>
+                  <td>{{ block.settings.method }}</td>
+                  <td>{{ block.settings.time }}</td>
+                  <td>{{ block.settings.cost }}</td>
+                </tr>
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
         </table>
-        <p style="margin-top:24px;color:var(--ink-soft);font-size:14px">Orders ship within 1-2 business days from our Portland studio. You'll receive a tracking number via email once your order ships.</p>
       </div>
       
-      <div class="shipping-section reveal delay-1">
-        <h3>Returns</h3>
-        <p style="color:var(--ink-soft);font-size:14px;line-height:1.8;margin-bottom:24px">We accept returns within 30 days of delivery on unopened items in original packaging. If your candle arrives damaged, please contact us within 7 days with photos and we'll send a replacement.</p>
-        <h4 style="font-size:14px;margin-bottom:12px">To initiate a return:</h4>
-        <ol style="color:var(--ink-soft);font-size:14px;line-height:2;padding-left:20px">
-          <li>Email returns@auraandoak.com with your order number</li>
-          <li>We'll send you a return shipping label</li>
-          <li>Pack the item securely and drop off at any carrier</li>
-          <li>Refund processed within 5-7 business days of receipt</li>
-        </ol>
-        <p style="margin-top:24px;color:var(--ink-soft);font-size:14px"><strong>Note:</strong> Return shipping is free for defective items. For all other returns, a $7.99 return shipping fee will be deducted from your refund.</p>
+      <div class="returns-info reveal delay-1">
+        <h3>{{ section.settings.returns_heading }}</h3>
+        <div class="rte">{{ section.settings.returns_text }}</div>
       </div>
     </div>
   </div>
 </section>
 
-{% schema %}{ "name": "Shipping & Returns", "presets": [{ "name": "Shipping & Returns" }] }{% endschema %}
+{% schema %}
+{
+  "name": "Shipping & Returns",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shipping & Returns" },
+    { "type": "text", "id": "shipping_heading", "label": "Shipping heading", "default": "Shipping Information" },
+    { "type": "richtext", "id": "shipping_text", "label": "Shipping text" },
+    { "type": "text", "id": "returns_heading", "label": "Returns heading", "default": "Returns & Exchanges" },
+    { "type": "richtext", "id": "returns_text", "label": "Returns text" }
+  ],
+  "blocks": [
+    {
+      "type": "shipping_option",
+      "name": "Shipping Option",
+      "settings": [
+        { "type": "text", "id": "method", "label": "Method" },
+        { "type": "text", "id": "time", "label": "Delivery Time" },
+        { "type": "text", "id": "cost", "label": "Cost" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Shipping & Returns" }]
+}
+{% endschema %}
