@@ -11,13 +11,11 @@
     <nav class="nav">
       {%- assign nav_links = linklists.main-menu.links -%}
       {%- if nav_links.size == 0 -%}
-        {%- assign fallback = 'Candles|candles,Diffusers|diffusers,All Fragrance|all' | split: ',' -%}
-        {%- for item in fallback -%}
-          {%- assign parts = item | split: '|' -%}
-          {%- assign c = collections[parts[1]] -%}
-          <a href="{% if c %}{{ c.url }}{% else %}/collections/all/{{ parts[1] | capitalize }}{% endif %}" {% if c and c.handle == collection.handle %}class="is-active"{% endif %}>{{ parts[0] }}</a>
-        {%- endfor -%}
-        <a href="{{ routes.collections_url }}">Shop all</a>
+        <a href="/collections/candles">Candles</a>
+        <a href="/collections/diffusers">Diffusers</a>
+        <a href="/collections/home-fragrance">Home Fragrance</a>
+        <a href="/collections/gift-ideas">Gifts</a>
+        <a href="/collections/all">Shop all</a>
       {%- else -%}
         {%- for link in nav_links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
       {%- endif -%}
@@ -43,7 +41,8 @@
   {%- if nav_links.size == 0 -%}
     <a href="/collections/candles">Candles</a>
     <a href="/collections/diffusers">Diffusers</a>
-    <a href="/collections">Home Fragrance</a>
+    <a href="/collections/home-fragrance">Home Fragrance</a>
+    <a href="/collections/gift-ideas">Gifts</a>
     <a href="/collections/all">Shop all</a>
   {%- else -%}
     {%- for link in nav_links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
