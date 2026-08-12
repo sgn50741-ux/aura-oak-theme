@@ -1,45 +1,39 @@
-
-<section class="contact-grid">
-  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:var(--container)">
-    <div class="contact-info reveal-left">
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
       <span class="eyebrow">Get in touch</span>
-      <h3 style="font-size:clamp(1.8rem,3vw,2.4rem);margin:16px 0 32px">We'd love to hear from you.</h3>
-      
-      <div class="contact-block">
-        <h4>Email</h4>
-        <p><a href="mailto:hello@auraandoak.com">hello@auraandoak.com</a></p>
-      </div>
-      <div class="contact-block">
-        <h4>Studio</h4>
-        <p>1247 NW Lovejoy Street<br>Portland, OR 97209</p>
-      </div>
-      <div class="contact-block">
-        <h4>Hours</h4>
-        <p>Monday – Friday: 10am – 6pm<br>Saturday: 11am – 5pm<br>Sunday: Closed</p>
-      </div>
-      <div class="contact-block">
-        <h4>Wholesale</h4>
-        <p><a href="/pages/wholesale">wholesale@auraandoak.com</a></p>
-      </div>
+      <h2>We'd love to hear from you.</h2>
     </div>
-
-    <div class="reveal-right">
-      <form class="contact-form" method="post" action="/contact">
-        <input type="hidden" name="form_type" value="contact">
+    
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <h4>Visit our studio</h4>
+          <p>1234 Burnside Street<br>Portland, OR 97209<br>By appointment only</p>
+        </div>
+        <div class="contact-item">
+          <h4>Email us</h4>
+          <p>hello@auraandoak.com<br>wholesale@auraandoak.com</p>
+        </div>
+        <div class="contact-item">
+          <h4>Call us</h4>
+          <p>(503) 555-0123<br>Mon-Fri, 9am-5pm PST</p>
+        </div>
+        <div class="contact-item">
+          <h4>Follow us</h4>
+          <p>@auraandoak on Instagram<br>@auraandoak on Pinterest</p>
+        </div>
+      </div>
+      
+      <form class="contact-form reveal delay-1" action="/contact" method="post">
         <input type="text" name="contact[name]" placeholder="Your name" required>
         <input type="email" name="contact[email]" placeholder="Your email" required>
         <input type="text" name="contact[subject]" placeholder="Subject">
         <textarea name="contact[body]" placeholder="Your message" required></textarea>
-        <button type="submit" class="btn btn--primary btn--full">Send message</button>
+        <button type="submit" class="btn btn--primary">Send message</button>
       </form>
     </div>
   </div>
 </section>
 
-{% schema %}
-{
-  "name": "Contact",
-  "settings": [],
-  "presets": [{ "name": "Contact" }]
-}
-{% endschema %}
+{% schema %}{ "name": "Contact", "presets": [{ "name": "Contact" }] }{% endschema %}
