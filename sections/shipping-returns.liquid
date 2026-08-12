@@ -1,37 +1,57 @@
-
-<section class="page-content">
+<section class="section">
   <div class="container">
-    <div class="reveal">
-      <h2>Shipping</h2>
-      <p>We ship from our Portland, Oregon studio. Most orders are processed within 1–2 business days.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Shipping & returns</span>
+      <h2>Everything you need to know.</h2>
     </div>
-    <div class="reveal" style="margin-top:40px">
-      <h3>Domestic shipping (US)</h3>
-      <ul>
-        <li><strong>Standard (3–5 business days):</strong> Complimentary on orders over $75. $8 on orders under $75.</li>
-        <li><strong>Expedited (1–2 business days):</strong> $18</li>
-        <li><strong>Overnight:</strong> $32</li>
-      </ul>
-    </div>
-    <div class="reveal" style="margin-top:40px">
-      <h3>International shipping</h3>
-      <p>We ship to most countries worldwide. Rates and delivery times vary by destination. Customers are responsible for any customs duties or import taxes.</p>
-      <ul>
-        <li><strong>Canada & Mexico (5–10 business days):</strong> Starting at $18</li>
-        <li><strong>Europe & UK (7–14 business days):</strong> Starting at $28</li>
-        <li><strong>Rest of world (10–21 business days):</strong> Starting at $38</li>
-      </ul>
-    </div>
-    <div class="reveal" style="margin-top:64px">
-      <h2>Returns</h2>
-      <p>We want you to love what you receive.</p>
-      <ul>
-        <li><strong>Unopened items:</strong> Return within 30 days of delivery for a full refund.</li>
-        <li><strong>Damaged items:</strong> Email us within 7 days of delivery with photos. We'll replace it immediately.</li>
-        <li><strong>Opened candles:</strong> Cannot be returned for hygiene reasons, but please reach out if there's an issue.</li>
-      </ul>
-      <p>To initiate a return, email <a href="mailto:hello@auraandoak.com">hello@auraandoak.com</a> with your order number.</p>
+    
+    <div class="shipping-grid">
+      <div class="shipping-section reveal">
+        <h3>Shipping</h3>
+        <table class="shipping-table">
+          <tr>
+            <th>Method</th>
+            <th>Time</th>
+            <th>Cost</th>
+          </tr>
+          <tr>
+            <td>Standard (US)</td>
+            <td>3-5 business days</td>
+            <td>Free over $75</td>
+          </tr>
+          <tr>
+            <td>Express (US)</td>
+            <td>2 business days</td>
+            <td>$15</td>
+          </tr>
+          <tr>
+            <td>Overnight (US)</td>
+            <td>1 business day</td>
+            <td>$25</td>
+          </tr>
+          <tr>
+            <td>International</td>
+            <td>7-14 business days</td>
+            <td>Calculated at checkout</td>
+          </tr>
+        </table>
+        <p style="margin-top:24px;color:var(--ink-soft);font-size:14px">Orders ship within 1-2 business days from our Portland studio. You'll receive a tracking number via email once your order ships.</p>
+      </div>
+      
+      <div class="shipping-section reveal delay-1">
+        <h3>Returns</h3>
+        <p style="color:var(--ink-soft);font-size:14px;line-height:1.8;margin-bottom:24px">We accept returns within 30 days of delivery on unopened items in original packaging. If your candle arrives damaged, please contact us within 7 days with photos and we'll send a replacement.</p>
+        <h4 style="font-size:14px;margin-bottom:12px">To initiate a return:</h4>
+        <ol style="color:var(--ink-soft);font-size:14px;line-height:2;padding-left:20px">
+          <li>Email returns@auraandoak.com with your order number</li>
+          <li>We'll send you a return shipping label</li>
+          <li>Pack the item securely and drop off at any carrier</li>
+          <li>Refund processed within 5-7 business days of receipt</li>
+        </ol>
+        <p style="margin-top:24px;color:var(--ink-soft);font-size:14px"><strong>Note:</strong> Return shipping is free for defective items. For all other returns, a $7.99 return shipping fee will be deducted from your refund.</p>
+      </div>
     </div>
   </div>
 </section>
-{% schema %}{"name":"Shipping & returns","settings":[],"presets":[{"name":"Shipping & returns"}]}{% endschema %}
+
+{% schema %}{ "name": "Shipping & Returns", "presets": [{ "name": "Shipping & Returns" }] }{% endschema %}
