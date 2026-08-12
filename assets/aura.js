@@ -1,19 +1,59 @@
+
 (() => {
   'use strict';
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
+  /* ===== Page load transition ===== */
+  window.addEventListener('load', () => document.body.classList.add('loaded'));
+
   const fmt = (cents) => {
     const f = window.AURA?.moneyFormat || '${{amount}}';
-    return f.replace('{{amount}}', (cents / 100).toFixed(2)).replace('{{amount_no_decimals}}', Math.round(cents / 100));
+    return f.replace('{{amount}}', (cents / 100).toFixed(2));
   };
 
-  /* ===== Reveal on scroll ===== */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-  $$('.reveal').forEach(el => io.observe(el));
+  /* ===== Scroll reveal system ===== */
+  const revealClasses = ['reveal', 'reveal-left', 'reveal-right', 'reveal-scale', 'reveal-clip', 'line-reveal', 'stagger'];
+  const revealSelector = revealClasses.map(c => '.' + c).join(',');
+  
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+  function initReveals() {
+    $$(revealSelector).forEach(el => {
+      if (!el.classList.contains('in')) revealObserver.observe(el);
+    });
+  }
+  initReveals();
+
+  /* ===== Parallax on scroll ===== */
+  const parallaxEls = $$('.parallax');
+  if (parallaxEls.length) {
+    let ticking = false;
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      parallaxEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const speed = parseFloat(el.dataset.speed) || 0.3;
+        const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 
   /* ===== Header scroll state ===== */
   const header = $('.site-header');
@@ -47,7 +87,7 @@
     toast._t = setTimeout(() => toastEl.classList.remove('is-shown'), 2800);
   }
 
-  /* ===== Cart state & drawer ===== */
+  /* ===== Cart drawer ===== */
   const drawer = $('.cart-drawer');
   const drawerItems = $('.cart-items');
   const drawerCount = $$('.cart-count');
@@ -147,10 +187,9 @@
   }
   window.addToCart = addToCart;
 
-  /* Init cart on load */
   fetchCart().then(c => c && renderCartItems(c));
 
-  /* ===== PDP: variant picker + add ===== */
+  /* ===== PDP: variant picker ===== */
   const pdpForm = $('#ProductForm');
   if (pdpForm) {
     const product = JSON.parse(pdpForm.dataset.product);
@@ -195,7 +234,6 @@
       if (id) addToCart(id, qty);
     });
 
-    // Gallery
     const mainImg = $('.pdp-main-image img');
     $$('.pdp-thumb').forEach(t => {
       t.addEventListener('click', () => {
@@ -208,9 +246,25 @@
     render();
   }
 
-  /* ===== Filter checkboxes (collection) ===== */
-  $$('.filter-check-box').forEach(a => {
-    // already link behavior via href
+  /* ===== FAQ accordion (auto-close others) ===== */
+  $$('.faq-list details').forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        $$('.faq-list details').forEach(d => { if (d !== detail) d.open = false; });
+      }
+    });
+  });
+
+  /* ===== FAQ category filter ===== */
+  $$('.faq-cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('.faq-cat-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.category;
+      $$('.faq-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.category === cat) ? '' : 'none';
+      });
+    });
   });
 
   /* ===== Newsletter ===== */
@@ -229,4 +283,22 @@
       } catch { toast('Couldn\'t subscribe — please try again'); }
     });
   }
+
+  /* ===== Magnetic buttons (optional, desktop only) ===== */
+  if (window.matchMedia('(hover: hover)').matches) {
+    $$('.btn-magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  /* ===== Re-init reveals after dynamic content ===== */
+  window.addEventListener('shopify:section:load', initReveals);
 })();
