@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Gift guide",
+        "heading": "Gifts, thoughtfully chosen.",
+        "subheading": "Curated combinations for every kind of recipient."
+      }
+    },
+    "content": {
+      "type": "gift-guide-content"
+    }
+  },
+  "order": [
+    "hero",
+    "content"
+  ]
+}
