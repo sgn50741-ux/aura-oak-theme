@@ -60,25 +60,17 @@
 
     <div class="pdp-actions">
       <button type="submit" class="btn btn--primary btn--large btn--full pdp-add">Add to cart</button>
-      {{ form | payment_button }}
     </div>
 
     <div class="pdp-description">{{ product.description }}</div>
 
     <div class="pdp-accordions">
-      {%- assign specs = product.metafields.aura.specs.value -%}
-      {%- if specs -%}
-        <details>
-          <summary>Details & materials</summary>
-          <div class="detail-body">
-            <table class="specs-table">
-              {%- for spec in specs -%}
-                <tr><td>{{ spec.label }}</td><td>{{ spec.value }}</td></tr>
-              {%- endfor -%}
-            </table>
-          </div>
-        </details>
-      {%- endif -%}
+      <details>
+        <summary>Details & materials</summary>
+        <div class="detail-body">
+          <p>{{ product.description }}</p>
+        </div>
+      </details>
       <details>
         <summary>Shipping & returns</summary>
         <div class="detail-body">
