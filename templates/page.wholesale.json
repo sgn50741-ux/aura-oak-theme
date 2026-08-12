@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Wholesale",
+        "heading": "Partner with us.",
+        "subheading": "For retailers, hotels, and design-forward spaces."
+      }
+    },
+    "content": {
+      "type": "wholesale-content"
+    }
+  },
+  "order": [
+    "hero",
+    "content"
+  ]
+}
