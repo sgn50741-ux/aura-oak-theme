@@ -1,21 +1,23 @@
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-    <h1 class="reveal">{{ section.settings.heading }}</h1>
-    {%- if section.settings.subheading != blank -%}
-      <p class="reveal delay-1">{{ section.settings.subheading }}</p>
-    {%- endif -%}
+    <div class="page-hero-content reveal">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h1>{{ section.settings.heading }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <p>{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Page hero",
+  "name": "Page Hero",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Page title" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The quiet ritual of home." },
     { "type": "textarea", "id": "subheading", "label": "Subheading" }
   ],
-  "presets": [{ "name": "Page hero" }]
+  "presets": [{ "name": "Page Hero" }]
 }
 {% endschema %}
