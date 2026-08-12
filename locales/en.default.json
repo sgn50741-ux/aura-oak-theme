@@ -1,1 +1,34 @@
-{ "general": { "404": { "title": "Page not found" } } }
+{
+  "general": {
+    "404": {
+      "title": "Page not found"
+    },
+    "accessibility": {
+      "skip_to_text": "Skip to main content"
+    },
+    "social": {
+      "share_on_facebook": "Share",
+      "share_on_twitter": "Tweet",
+      "share_on_pinterest": "Pin it"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "price": "Price",
+      "sale": "Sale",
+      "quantity": "Quantity"
+    }
+  },
+  "cart": {
+    "cart": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "continue_shopping": "Continue shopping"
+    }
+  }
+}
