@@ -1,0 +1,94 @@
+
+<section class="page-content">
+  <div class="container">
+    <div class="reveal">
+      <h2>Our commitment</h2>
+      <p>We believe that the things we bring into our homes should be good — not just for how they make us feel, but for the world we share. Sustainability isn't a marketing angle for us. It's the foundation everything is built on.</p>
+    </div>
+
+    <div class="sustain-stats stagger">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">American-grown soy</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Phthalates, ever</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">92%</div>
+        <div class="stat-label">Recyclable packaging</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15k+</div>
+        <div class="stat-label">Vessels refilled</div>
+      </div>
+    </div>
+
+    <div class="page-split reveal" style="margin:64px 0">
+      <div class="page-split-media reveal-clip">
+        {%- if section.settings.image_url != blank -%}
+          <img src="{{ section.settings.image_url }}" alt="Sustainability" loading="lazy">
+        {%- endif -%}
+      </div>
+      <div class="page-split-content">
+        <span class="eyebrow">The wax</span>
+        <h2>Soy, grown in America</h2>
+        <p>Our soy wax comes from farms in Iowa and Illinois. It's renewable, biodegradable, and burns cleaner than paraffin — no petroleum byproducts, no black soot on your walls. We chose soy because it's the right material for the job, not because it sounds good in a pitch deck.</p>
+      </div>
+    </div>
+
+    <div class="page-split page-split--reverse reveal" style="margin:64px 0">
+      <div class="page-split-media reveal-clip">
+        {%- if section.settings.image_url_2 != blank -%}
+          <img src="{{ section.settings.image_url_2 }}" alt="Fragrance" loading="lazy">
+        {%- endif -%}
+      </div>
+      <div class="page-split-content">
+        <span class="eyebrow">The fragrance</span>
+        <h2>Phthalate-free, always</h2>
+        <p>Every fragrance we use is free of phthalates, parabens, and synthetic musks. We work with independent perfumers in Grasse, France, and small-batch fragrance houses in the US who share our standards. If a material doesn't meet our safety and sustainability criteria, we don't use it — even if it smells incredible.</p>
+      </div>
+    </div>
+
+    <h2 class="reveal">The vessels</h2>
+    <div class="values-grid stagger">
+      <div class="value-card">
+        <div class="value-card-icon">♺</div>
+        <h4>Refill program</h4>
+        <p>Send back your empty vessel and we'll refill it for 30% off. Or drop it at our Portland studio. We clean it, pour it, and send it back — or you pick it up in person.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-icon">♻</div>
+        <h4>Recyclable packaging</h4>
+        <p>Our boxes are made from 100% post-consumer recycled paper. Our packing peanuts are cornstarch-based and dissolve in water. Our tape is paper-based.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-icon">✦</div>
+        <h4>Ceramic, not plastic</h4>
+        <p>Every vessel is hand-thrown ceramic — made to last decades, not days. When the candle is gone, the vessel becomes a cup, a planter, a catch-all.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card-icon">◐</div>
+        <h4>Carbon-neutral shipping</h4>
+        <p>We offset 100% of our shipping emissions through verified carbon removal projects. Every order, every time.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:80px;text-align:center">
+      <h2>Our 2026 goals</h2>
+      <p style="max-width:640px;margin:16px auto 0">By the end of this year, we're committed to achieving 100% recyclable or compostable packaging across every product — including our gift sets and accessories. We're also transitioning our shipping materials to fully home-compostable alternatives.</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sustainability content",
+  "settings": [
+    { "type": "text", "id": "image_url", "label": "Image 1 URL" },
+    { "type": "text", "id": "image_url_2", "label": "Image 2 URL" }
+  ],
+  "presets": [{ "name": "Sustainability content" }]
+}
+{% endschema %}
