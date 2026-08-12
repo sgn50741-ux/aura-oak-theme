@@ -1,57 +1,474 @@
 <!doctype html>
-<html lang="en" class="js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FAF6F0">
+<html lang="en" class="js"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FAF6F0">
 <title>{{ page_title }}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
 {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
-<link rel="canonical" href="{{ canonical_url }}">{{ content_for_header }}
+<link rel="canonical" href="{{ canonical_url }}">
+{{ content_for_header }}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-{{ 'aura.css' | asset_url | stylesheet_tag }}</head>
+{{ 'aura.css' | asset_url | stylesheet_tag }}
+<script>document.documentElement.classList.add('js');</script>
+</head>
 <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.suffix }}{% endif %}">
 <a class="skip-link" href="#MainContent">Skip to content</a>
 <div class="announce">Complimentary shipping on orders over Rs 5,000 ✦ Hand-poured in small batches ✦ 100% soy wax</div>
+
 <header class="site-header"><div class="container header-inner">
-<button class="icon-btn menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<button class="icon-btn menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 <a href="{{ routes.root_url }}" class="logo">Aura <em>&amp;</em> Oak</a>
+
 <nav class="nav" aria-label="Primary">
-<div class="nav-item"><a href="/collections/all" class="nav-link">Shop</a><div class="mega"><div class="mega-inner">
-<div class="mega-col"><h5 class="mega-title">Collections</h5><a href="/collections/all">All Products</a><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a><a href="/collections/home-fragrance">Room Sprays &amp; Incense</a><a href="/collections/gift-ideas">Gift Sets</a><a href="/collections/accessories">Accessories</a></div>
-<div class="mega-col"><h5 class="mega-title">By Scent</h5><a href="/collections/all/woody">Woody &amp; Smoky</a><a href="/collections/all/warm">Warm &amp; Spicy</a><a href="/collections/all/fresh">Fresh &amp; Green</a><a href="/collections/all/floral">Floral &amp; Soft</a><a href="/collections/all/fruity">Fruity &amp; Bright</a></div>
-<div class="mega-col"><h5 class="mega-title">Featured</h5><a href="/pages/gift-guide">Gift Guide</a><a href="/pages/lookbook">Lookbook</a><a href="/pages/candle-care">Candle Care</a><a href="/collections/all?sort_by=created-descending">New Arrivals</a></div>
-</div></div></div>
-<div class="nav-item"><a href="/pages/our-story" class="nav-link">Studio</a><div class="mega mega-sm"><div class="mega-inner">
-<div class="mega-col"><h5 class="mega-title">About</h5><a href="/pages/our-story">Our Story</a><a href="/pages/sustainability">Sustainability</a><a href="/pages/wholesale">Wholesale</a></div>
-<div class="mega-col"><h5 class="mega-title">Explore</h5><a href="/pages/journal">The Ritual Journal</a><a href="/pages/lookbook">Lookbook</a><a href="/pages/gift-guide">Gift Guide</a></div>
-</div></div></div>
-<div class="nav-item"><a href="/pages/faq" class="nav-link">Help</a><div class="mega mega-sm"><div class="mega-inner">
-<div class="mega-col"><h5 class="mega-title">Support</h5><a href="/pages/shipping">Shipping &amp; Returns</a><a href="/pages/faq">FAQ</a><a href="/pages/candle-care">Candle Care</a><a href="/pages/contact">Contact</a></div>
-<div class="mega-col"><h5 class="mega-title">Account</h5><a href="/account">Sign in</a><a href="/account/register">Create account</a><a href="/search">Search</a></div>
-</div></div></div>
-<a href="/pages/journal" class="nav-link">Journal</a><a href="/pages/our-story" class="nav-link">Our Story</a>
+  <div class="nav-item" data-mega>
+    <a href="/collections/all" class="nav-link">Shop</a>
+    <div class="mega mega-wide">
+      <div class="mega-grid-4">
+        <div class="mega-col">
+          <h5 class="mega-title">Signature Candles</h5>
+          <a class="mega-product" href="/products/santal-noir-soy-candle">
+            <span class="mp-name">Santal Noir</span>
+            <span class="mp-meta">Our signature · from Rs 36</span>
+          </a>
+          <a class="mega-product" href="/products/amber-oakmoss-soy-candle">
+            <span class="mp-name">Amber &amp; Oakmoss</span>
+            <span class="mp-meta">The founding scent · from Rs 38</span>
+          </a>
+          <a class="mega-product" href="/products/cedar-smoke-soy-candle">
+            <span class="mp-name">Cedar &amp; Smoke</span>
+            <span class="mp-meta">Woody &amp; grounding · from Rs 34</span>
+          </a>
+          <a class="mega-product" href="/products/neroli-dusk-soy-candle">
+            <span class="mp-name">Neroli Dusk</span>
+            <span class="mp-meta">Golden hour · from Rs 34</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <h5 class="mega-title">Diffusers &amp; Mists</h5>
+          <a class="mega-product" href="/products/terra-ceramic-reed-diffuser">
+            <span class="mp-name">Terra Ceramic Diffuser</span>
+            <span class="mp-meta">4–6 months · Rs 64</span>
+          </a>
+          <a class="mega-product" href="/products/ivory-ceramic-reed-diffuser">
+            <span class="mp-name">Ivory Ceramic Diffuser</span>
+            <span class="mp-meta">Refillable · Rs 64</span>
+          </a>
+          <a class="mega-product" href="/products/room-linen-mist">
+            <span class="mp-name">Room &amp; Linen Mist</span>
+            <span class="mp-meta">3 scents · Rs 28</span>
+          </a>
+          <a class="mega-product" href="/products/diffuser-oil-refill-200ml">
+            <span class="mp-name">Diffuser Refill 200ml</span>
+            <span class="mp-meta">4 scents · Rs 42</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <h5 class="mega-title">Gifts &amp; Rituals</h5>
+          <a class="mega-product" href="/products/discovery-set-six-mini-candles">
+            <span class="mp-name">Discovery Set</span>
+            <span class="mp-meta">6 mini candles · Rs 98</span>
+          </a>
+          <a class="mega-product" href="/products/evening-ritual-gift-set">
+            <span class="mp-name">Evening Ritual</span>
+            <span class="mp-meta">Candle + mist · Rs 84</span>
+          </a>
+          <a class="mega-product" href="/products/the-care-kit">
+            <span class="mp-name">The Care Kit</span>
+            <span class="mp-meta">Trimmer, snuffer, matches · Rs 52</span>
+          </a>
+          <a class="mega-product" href="/products/botanical-incense-cedar-smoke">
+            <span class="mp-name">Botanical Incense</span>
+            <span class="mp-meta">40 sticks · Rs 24</span>
+          </a>
+        </div>
+        <div class="mega-col mega-feature">
+          <h5 class="mega-title">Shop by Scent</h5>
+          <div class="mega-scent">
+            <strong>Woody &amp; Smoky</strong>
+            <span>Cedarwood, smoked amber, sandalwood</span>
+            <a href="/products/cedar-smoke-soy-candle">Shop woody →</a>
+          </div>
+          <div class="mega-scent">
+            <strong>Warm &amp; Spicy</strong>
+            <span>Cardamom, clove, amber resin</span>
+            <a href="/products/santal-noir-soy-candle">Shop warm →</a>
+          </div>
+          <div class="mega-scent">
+            <strong>Fresh &amp; Floral</strong>
+            <span>Neroli, lavender, sea salt</span>
+            <a href="/products/neroli-dusk-soy-candle">Shop fresh →</a>
+          </div>
+          <div class="mega-scent">
+            <strong>Fruity &amp; Green</strong>
+            <span>Fig, blackcurrant, bergamot</span>
+            <a href="/products/fig-cassis-soy-candle">Shop fruity →</a>
+          </div>
+        </div>
+      </div>
+      <div class="mega-foot">
+        <a href="/collections/all">View all {{ collections.all.products_count | default: 15 }} products</a>
+        <a href="/products/discovery-set-six-mini-candles">Try the Discovery Set →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-item" data-mega>
+    <a href="/pages/our-story" class="nav-link">Studio</a>
+    <div class="mega mega-md">
+      <div class="mega-grid-2">
+        <div class="mega-col">
+          <h5 class="mega-title">About the Studio</h5>
+          <a class="mega-product" href="/pages/our-story">
+            <span class="mp-name">Our Story</span>
+            <span class="mp-meta">Seven years of slow craft in Portland</span>
+          </a>
+          <a class="mega-product" href="/pages/sustainability">
+            <span class="mp-name">Sustainability</span>
+            <span class="mp-meta">Soy wax, refillable vessels, small batches</span>
+          </a>
+          <a class="mega-product" href="/pages/wholesale">
+            <span class="mp-name">Wholesale</span>
+            <span class="mp-meta">Partner with us</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <h5 class="mega-title">Explore</h5>
+          <a class="mega-product" href="/pages/journal">
+            <span class="mp-name">The Ritual Journal</span>
+            <span class="mp-meta">Essays on slow living and scent</span>
+          </a>
+          <a class="mega-product" href="/pages/lookbook">
+            <span class="mp-name">Lookbook</span>
+            <span class="mp-meta">A visual meditation</span>
+          </a>
+          <a class="mega-product" href="/pages/gift-guide">
+            <span class="mp-name">Gift Guide</span>
+            <span class="mp-meta">Curated by occasion</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-item" data-mega>
+    <a href="/pages/faq" class="nav-link">Help</a>
+    <div class="mega mega-md">
+      <div class="mega-grid-2">
+        <div class="mega-col">
+          <h5 class="mega-title">Support</h5>
+          <a class="mega-product" href="/pages/shipping">
+            <span class="mp-name">Shipping &amp; Returns</span>
+            <span class="mp-meta">Free shipping over Rs 5,000</span>
+          </a>
+          <a class="mega-product" href="/pages/faq">
+            <span class="mp-name">FAQ</span>
+            <span class="mp-meta">Common questions, answered</span>
+          </a>
+          <a class="mega-product" href="/pages/candle-care">
+            <span class="mp-name">Candle Care Guide</span>
+            <span class="mp-meta">Make every burn count</span>
+          </a>
+          <a class="mega-product" href="/pages/contact">
+            <span class="mp-name">Contact Us</span>
+            <span class="mp-meta">We reply within 24 hours</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <h5 class="mega-title">Your Account</h5>
+          <a class="mega-product" href="/account/login">
+            <span class="mp-name">Sign In</span>
+            <span class="mp-meta">Returning customers</span>
+          </a>
+          <a class="mega-product" href="/account/register">
+            <span class="mp-name">Create Account</span>
+            <span class="mp-meta">Join the ritual</span>
+          </a>
+          <a class="mega-product" href="/search">
+            <span class="mp-name">Search</span>
+            <span class="mp-meta">Find a scent by name or note</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="/pages/journal" class="nav-link">Journal</a>
+  <a href="/pages/our-story" class="nav-link">Our Story</a>
 </nav>
+
 <div class="header-icons">
-<a href="/search" class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
-<a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
-<a href="{{ routes.cart_url }}" class="icon-btn" data-cart-open aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.5 13h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count{% if cart.item_count == 0 %} is-hidden{% endif %}">{{ cart.item_count }}</span></a>
-</div></div></header>
-<div class="mobile-menu" aria-hidden="true"><div class="mm-head"><span class="logo">Aura <em>&amp;</em> Oak</span><button class="icon-btn mm-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <a href="/search" class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
+  <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+  <a href="{{ routes.cart_url }}" class="icon-btn" data-cart-open aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.5 13h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count{% if cart.item_count == 0 %} is-hidden{% endif %}">{{ cart.item_count }}</span></a>
+</div>
+</div></header>
+
+<div class="mobile-menu" aria-hidden="true"><div class="mm-head">
+  <span class="logo">Aura <em>&amp;</em> Oak</span>
+  <button class="icon-btn mm-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
 <nav class="mm-nav">
-<div class="mm-acc"><button type="button">Shop<span class="mm-caret"></span></button><div class="mm-panel"><a href="/collections/all">All Products</a><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a><a href="/collections/home-fragrance">Room Sprays</a><a href="/collections/gift-ideas">Gift Sets</a><a href="/collections/accessories">Accessories</a></div></div>
-<div class="mm-acc"><button type="button">Studio<span class="mm-caret"></span></button><div class="mm-panel"><a href="/pages/our-story">Our Story</a><a href="/pages/sustainability">Sustainability</a><a href="/pages/wholesale">Wholesale</a><a href="/pages/journal">Journal</a><a href="/pages/lookbook">Lookbook</a></div></div>
-<div class="mm-acc"><button type="button">Help<span class="mm-caret"></span></button><div class="mm-panel"><a href="/pages/shipping">Shipping &amp; Returns</a><a href="/pages/faq">FAQ</a><a href="/pages/candle-care">Candle Care</a><a href="/pages/contact">Contact</a></div></div>
-<a href="/pages/journal" class="mm-link">Journal</a><a href="/pages/our-story" class="mm-link">Our Story</a>
-</nav><div class="mm-foot"><a href="/account">Account</a><a href="/search">Search</a></div></div>
+  <div class="mm-acc"><button type="button">Shop<span class="mm-caret"></span></button>
+    <div class="mm-panel">
+      <a href="/collections/all">All Products</a>
+      <a href="/products/santal-noir-soy-candle">Santal Noir</a>
+      <a href="/products/amber-oakmoss-soy-candle">Amber &amp; Oakmoss</a>
+      <a href="/products/cedar-smoke-soy-candle">Cedar &amp; Smoke</a>
+      <a href="/products/fig-cassis-soy-candle">Fig &amp; Cassis</a>
+      <a href="/products/lavender-sea-salt-soy-candle">Lavender &amp; Sea Salt</a>
+      <a href="/products/neroli-dusk-soy-candle">Neroli Dusk</a>
+      <a href="/products/terra-ceramic-reed-diffuser">Terra Diffuser</a>
+      <a href="/products/ivory-ceramic-reed-diffuser">Ivory Diffuser</a>
+      <a href="/products/room-linen-mist">Room &amp; Linen Mist</a>
+      <a href="/products/discovery-set-six-mini-candles">Discovery Set</a>
+      <a href="/products/evening-ritual-gift-set">Evening Ritual</a>
+    </div>
+  </div>
+  <div class="mm-acc"><button type="button">Studio<span class="mm-caret"></span></button>
+    <div class="mm-panel">
+      <a href="/pages/our-story">Our Story</a>
+      <a href="/pages/sustainability">Sustainability</a>
+      <a href="/pages/wholesale">Wholesale</a>
+      <a href="/pages/journal">Journal</a>
+      <a href="/pages/lookbook">Lookbook</a>
+      <a href="/pages/gift-guide">Gift Guide</a>
+    </div>
+  </div>
+  <div class="mm-acc"><button type="button">Help<span class="mm-caret"></span></button>
+    <div class="mm-panel">
+      <a href="/pages/shipping">Shipping &amp; Returns</a>
+      <a href="/pages/faq">FAQ</a>
+      <a href="/pages/candle-care">Candle Care</a>
+      <a href="/pages/contact">Contact</a>
+      <a href="/account/login">Sign in</a>
+    </div>
+  </div>
+  <a href="/pages/journal" class="mm-link">Journal</a>
+  <a href="/pages/our-story" class="mm-link">Our Story</a>
+</nav>
+<div class="mm-foot"><a href="/account">Account</a><a href="/search">Search</a></div>
+</div>
+
 <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
-<footer class="site-footer"><div class="container"><div class="footer-grid">
-<div class="footer-brand"><a href="{{ routes.root_url }}" class="logo">Aura <em>&amp;</em> Oak</a><p>Hand-poured soy candles, ceramic diffusers, and artisan home fragrances. Made in small batches in Portland, Oregon.</p></div>
-<div class="footer-col"><h5>Shop</h5><ul><li><a href="/collections/all">All Products</a></li><li><a href="/collections/candles">Candles</a></li><li><a href="/collections/diffusers">Diffusers</a></li><li><a href="/collections/home-fragrance">Room Sprays &amp; Incense</a></li><li><a href="/collections/gift-ideas">Gift Sets</a></li><li><a href="/collections/accessories">Accessories</a></li></ul></div>
-<div class="footer-col"><h5>Studio</h5><ul><li><a href="/pages/our-story">Our Story</a></li><li><a href="/pages/journal">The Ritual Journal</a></li><li><a href="/pages/lookbook">Lookbook</a></li><li><a href="/pages/sustainability">Sustainability</a></li><li><a href="/pages/wholesale">Wholesale</a></li></ul></div>
-<div class="footer-col"><h5>Help</h5><ul><li><a href="/pages/shipping">Shipping &amp; Returns</a></li><li><a href="/pages/faq">FAQ</a></li><li><a href="/pages/candle-care">Candle Care</a></li><li><a href="/pages/contact">Contact</a></li><li><a href="/account">Account</a></li></ul></div>
-</div><div class="footer-bottom"><span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} — Hand-poured in Portland</span><span>{{ powered_by_link }}</span></div></div></footer>
-<aside class="cart-drawer" id="CartDrawer" aria-hidden="true"><div class="cart-backdrop" data-cart-close></div><div class="cart-panel" role="dialog" aria-modal="true" aria-label="Cart">
-<div class="cart-head"><h3>Your Cart <span class="cart-head-count"></span></h3><button class="icon-btn" data-cart-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-<div class="cart-progress"><span class="cart-progress-text"></span><div class="cart-progress-bar"><div class="cart-progress-fill"></div></div></div>
-<div class="cart-items" id="CartItems"></div>
-<div class="cart-foot"><div class="cart-subtotal"><span>Subtotal</span><strong id="CartSubtotal">$0.00</strong></div><p class="cart-note">Shipping &amp; taxes calculated at checkout.</p><a href="/checkout" class="btn btn-primary btn-full">Checkout</a><a href="/cart" class="btn btn-ghost btn-full">View cart</a></div>
-</div></aside>
-<script>window.AURA={moneyFormat:{{ shop.money_format | json }},freeShipThreshold:5000};</script>
-{{ 'aura.js' | asset_url | script_tag }}</body></html>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="{{ routes.root_url }}" class="logo">Aura <em>&amp;</em> Oak</a><p>Hand-poured soy candles, ceramic diffusers, and artisan home fragrances. Made in small batches in Portland, Oregon.</p></div>
+    <div class="footer-col"><h5>Shop</h5><ul>
+      <li><a href="/collections/all">All Products</a></li>
+      <li><a href="/products/santal-noir-soy-candle">Santal Noir</a></li>
+      <li><a href="/products/amber-oakmoss-soy-candle">Amber &amp; Oakmoss</a></li>
+      <li><a href="/products/terra-ceramic-reed-diffuser">Terra Diffuser</a></li>
+      <li><a href="/products/discovery-set-six-mini-candles">Discovery Set</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Studio</h5><ul>
+      <li><a href="/pages/our-story">Our Story</a></li>
+      <li><a href="/pages/journal">The Ritual Journal</a></li>
+      <li><a href="/pages/lookbook">Lookbook</a></li>
+      <li><a href="/pages/sustainability">Sustainability</a></li>
+      <li><a href="/pages/wholesale">Wholesale</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Help</h5><ul>
+      <li><a href="/pages/shipping">Shipping &amp; Returns</a></li>
+      <li><a href="/pages/faq">FAQ</a></li>
+      <li><a href="/pages/candle-care">Candle Care</a></li>
+      <li><a href="/pages/contact">Contact</a></li>
+      <li><a href="/account">Account</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} — Hand-poured in Portland</span><span>{{ powered_by_link }}</span></div>
+</div></footer>
+
+<aside class="cart-drawer" id="CartDrawer" aria-hidden="true">
+  <div class="cart-backdrop" data-cart-close></div>
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-label="Cart">
+    <div class="cart-head"><h3>Your Cart <span class="cart-head-count"></span></h3><button class="icon-btn" data-cart-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="cart-progress"><span class="cart-progress-text"></span><div class="cart-progress-bar"><div class="cart-progress-fill"></div></div></div>
+    <div class="cart-items" id="CartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><strong id="CartSubtotal">Rs 0</strong></div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+      <a href="/checkout" class="btn btn-primary btn-full">Checkout</a>
+      <a href="/cart" class="btn btn-ghost btn-full">View cart</a>
+    </div>
+  </div>
+</aside>
+
+<script>
+window.AURA = { moneyFormat: {{ shop.money_format | json }}, freeShipThreshold: 500000 };
+(function(){
+  var $ = function(s,r){ return (r||document).querySelector(s) };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)) };
+  document.addEventListener('DOMContentLoaded', function(){
+    requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+    initReveal(); initHeader(); initMega(); initMobile(); initCart(); initPDP(); initFAQ(); initNews(); initMarquee();
+  });
+
+  function initReveal(){
+    var els = $$('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+
+  function initHeader(){
+    var h = $('.site-header'); if(!h) return;
+    var f = function(){ h.classList.toggle('is-scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', f, {passive:true}); f();
+  }
+
+  // MEGA MENU: click to toggle (better for touch + guarantees visibility)
+  function initMega(){
+    var items = $$('.nav-item[data-mega]');
+    items.forEach(function(item){
+      var link = item.querySelector('.nav-link');
+      var mega = item.querySelector('.mega');
+      if(!mega) return;
+      // Hover works on desktop; click toggles as fallback
+      link.addEventListener('click', function(e){
+        // only intercept on touch/mobile OR if mega is closed
+        if(window.matchMedia('(max-width:900px)').matches || !item.classList.contains('is-open')){
+          e.preventDefault();
+          // close others
+          items.forEach(function(it){ if(it !== item) it.classList.remove('is-open'); });
+          item.classList.toggle('is-open');
+        }
+      });
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.nav-item[data-mega]')){
+        items.forEach(function(it){ it.classList.remove('is-open'); });
+      }
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') items.forEach(function(it){ it.classList.remove('is-open'); });
+    });
+  }
+
+  function initMobile(){
+    var m = $('.mobile-menu'); if(!m) return;
+    var open = function(){ m.classList.add('is-open'); document.body.classList.add('no-scroll'); };
+    var close = function(){ m.classList.remove('is-open'); document.body.classList.remove('no-scroll'); };
+    var t = $('.menu-toggle'); if(t) t.addEventListener('click', open);
+    $$('.mm-close', m).forEach(function(b){ b.addEventListener('click', close); });
+    $$('.mm-panel a,.mm-link', m).forEach(function(a){ a.addEventListener('click', close); });
+    $$('.mm-acc > button', m).forEach(function(b){ b.addEventListener('click', function(){ b.parentElement.classList.toggle('is-open'); }); });
+  }
+
+  var drawer;
+  function initCart(){
+    drawer = $('#CartDrawer'); if(!drawer) return;
+    $$('[data-cart-open]').forEach(function(el){ el.addEventListener('click', function(e){ e.preventDefault(); openD(); refresh(); }); });
+    $$('[data-cart-close]', drawer).forEach(function(el){ el.addEventListener('click', closeD); });
+    refresh();
+  }
+  function openD(){ drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll'); }
+  function closeD(){ drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); }
+  function refresh(){ fetch('/cart.js',{cache:'no-store'}).then(function(r){return r.json();}).then(render).catch(function(){}); }
+  function money(c){
+    var v = Math.round(c/100);
+    return 'Rs ' + v.toLocaleString('en-IN');
+  }
+  function render(cart){
+    $$('.cart-count').forEach(function(el){ el.textContent = cart.item_count; el.classList.toggle('is-hidden', cart.item_count === 0); });
+    var hc = $('.cart-head-count'); if(hc) hc.textContent = cart.item_count ? '('+cart.item_count+')' : '';
+    var items = $('#CartItems');
+    if(items){
+      if(!cart.items.length){
+        items.innerHTML = '<div class="cart-empty"><p class="serif">Your cart is empty.</p><p>Light something beautiful.</p><a class="btn btn-primary" href="/collections/all">Shop the collection</a></div>';
+      } else {
+        items.innerHTML = cart.items.map(function(it){
+          return '<div class="cart-item" data-key="'+it.key+'">' +
+            '<a class="cart-item-media" href="'+it.url+'">'+(it.image?'<img src="'+it.image+'" alt="">':'<span class="cart-item-ph">A&O</span>')+'</a>' +
+            '<div><a class="cart-item-title" href="'+it.url+'">'+(it.product_title||it.title)+'</a>' +
+            ((it.variant_title && it.variant_title !== 'Default Title') ? '<div class="cart-item-variant">'+it.variant_title+'</div>' : '') +
+            '<div class="cart-item-qty"><button type="button" data-qty="-1">−</button><span>'+it.quantity+'</span><button type="button" data-qty="1">+</button></div></div>' +
+            '<div class="cart-item-right"><div class="cart-item-price">'+money(it.final_line_price||it.line_price)+'</div><button class="cart-item-remove" type="button" data-remove>Remove</button></div></div>';
+        }).join('');
+        $$('.cart-item', items).forEach(function(row){
+          var key = row.getAttribute('data-key');
+          var item = cart.items.filter(function(i){return i.key === key;})[0];
+          $$('[data-qty]', row).forEach(function(b){ b.addEventListener('click', function(){ change(key, item.quantity + parseInt(b.getAttribute('data-qty'),10)); }); });
+          var rm = $('[data-remove]', row); if(rm) rm.addEventListener('click', function(){ change(key,0); });
+        });
+      }
+    }
+    var th = window.AURA.freeShipThreshold || 500000;
+    var rem = th - cart.total_price;
+    var pt = $('.cart-progress-text'), bar = $('.cart-progress-fill');
+    if(pt) pt.innerHTML = rem > 0 ? 'Add <strong>'+money(rem)+'</strong> more for complimentary shipping' : '<span style="color:var(--sage)">✓ Complimentary shipping unlocked</span>';
+    if(bar) bar.style.width = Math.min(100, cart.total_price/th*100) + '%';
+    var sub = $('#CartSubtotal'); if(sub) sub.textContent = money(cart.total_price);
+  }
+  function change(key, qty){
+    fetch('/cart/change.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:key,quantity:qty})}).then(function(r){return r.json();}).then(render).catch(function(){});
+  }
+  function add(id, qty){
+    fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:id,quantity:qty||1})}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(){ refresh(); openD(); toast('Added to your cart'); }).catch(function(){ toast('Sorry, that could not be added.'); });
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-add-to-cart]');
+    if(b){ e.preventDefault(); add(parseInt(b.getAttribute('data-add-to-cart'),10), 1); }
+  });
+
+  function initPDP(){
+    var form = $('#ProductForm'); if(!form) return;
+    var j = $('#ProductJSON'); if(!j) return;
+    var p; try{ p = JSON.parse(j.textContent); }catch(e){ return; }
+    var state = {}; p.options.forEach(function(o,i){ state[o] = p.variants[0].options[i]; });
+    function cur(){
+      for(var v=0; v<p.variants.length; v++){
+        var va = p.variants[v], ok = true;
+        for(var i=0; i<p.options.length; i++){ if(va.options[i] !== state[p.options[i]]){ ok=false; break; } }
+        if(ok) return va;
+      }
+      return null;
+    }
+    function renderP(){
+      $$('.pdp-option-pill', form).forEach(function(b){ b.classList.toggle('is-selected', state[b.getAttribute('data-option')] === b.getAttribute('data-value')); });
+      var v = cur(); var a = $('#PdpAdd'), pr = $('#PdpPrice'), sel = $('#VariantSelect');
+      if(v){
+        if(pr) pr.innerHTML = money(v.price) + ((v.compare_at_price && v.compare_at_price > v.price) ? ' <span class="compare">'+money(v.compare_at_price)+'</span>' : '');
+        if(sel) sel.value = v.id;
+        if(a){ a.disabled = !v.available; a.textContent = v.available ? 'Add to cart' : 'Sold out'; }
+      } else if(a){ a.disabled = true; a.textContent = 'Unavailable'; }
+    }
+    $$('.pdp-option-pill', form).forEach(function(b){ b.addEventListener('click', function(){ state[b.getAttribute('data-option')] = b.getAttribute('data-value'); renderP(); }); });
+    var mi=$('#QtyMinus'), pl=$('#QtyPlus'), qi=$('#QtyInput');
+    if(mi&&pl&&qi){ mi.addEventListener('click',function(){qi.value=Math.max(1,parseInt(qi.value||'1',10)-1);}); pl.addEventListener('click',function(){qi.value=parseInt(qi.value||'1',10)+1;}); }
+    form.addEventListener('submit', function(e){ e.preventDefault(); var v = cur(); if(v && v.available) add(v.id, parseInt((qi&&qi.value)||'1',10)); });
+    var main = $('#PdpMainImg');
+    $$('.pdp-thumb').forEach(function(t){ t.addEventListener('click', function(){ if(main) main.src = t.getAttribute('data-src'); $$('.pdp-thumb').forEach(function(x){x.classList.toggle('is-active', x===t);}); }); });
+    renderP();
+  }
+
+  function initFAQ(){
+    var w = $('#FaqWrap'); if(!w) return;
+    $$('.faq-cat-btn', w).forEach(function(b){ b.addEventListener('click', function(){
+      var c = b.getAttribute('data-cat');
+      $$('.faq-cat-btn', w).forEach(function(x){ x.classList.toggle('is-active', x===b); });
+      $$('.faq-item', w).forEach(function(i){ i.classList.toggle('is-hidden', c !== 'all' && i.getAttribute('data-cat') !== c); });
+    }); });
+  }
+
+  function initNews(){
+    $$('form[data-newsletter]').forEach(function(f){ f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var em = $('input[type="email"]', f); if(!em || !em.value) return;
+      fetch('/contact',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'form_type=newsletter&contact%5Bemail%5D='+encodeURIComponent(em.value)+'&contact%5Btags%5D=newsletter'}).then(function(){ f.innerHTML = '<p class="newsletter-success">Welcome to the ritual. Use code RITUAL10 for 10% off your first order.</p>'; }).catch(function(){ toast('Something went wrong. Please try again.'); });
+    }); });
+  }
+
+  function initMarquee(){ $$('.marquee-track').forEach(function(t){ t.innerHTML += t.innerHTML; }); }
+
+  var tEl;
+  function toast(m){
+    if(!tEl){ tEl = document.createElement('div'); tEl.className = 'toast'; document.body.appendChild(tEl); }
+    tEl.textContent = m; tEl.classList.add('is-shown');
+    clearTimeout(toast._t); toast._t = setTimeout(function(){ tEl.classList.remove('is-shown'); }, 2600);
+  }
+})();
+</script>
+</body></html>
