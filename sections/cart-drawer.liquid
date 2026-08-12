@@ -8,7 +8,7 @@
     <div class="cart-items"></div>
     <div class="cart-foot">
       <div class="cart-progress">
-        <span>Add <strong>$75.00</strong> more for free shipping</span>
+        <span>Add <strong>${{ 75 | minus: 0 }}</strong> more for free shipping</span>
         <div class="cart-progress-bar"><div class="cart-progress-fill" style="width:0%"></div></div>
       </div>
       <div class="cart-subtotal"><span>Subtotal</span><strong class="cart-subtotal-value">$0.00</strong></div>
@@ -19,5 +19,4 @@
     </div>
   </div>
 </aside>
-
 {% schema %}{ "name": "Cart drawer" }{% endschema %}

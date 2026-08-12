@@ -6,13 +6,11 @@
     {%- else -%}
       <div class="pcard-media--placeholder">A&O</div>
     {%- endif -%}
-
     <div class="pcard-badges">
       {%- if card_product.tags contains 'Bestseller' -%}<span class="badge badge--dark">Bestseller</span>{%- endif -%}
       {%- if card_product.tags contains 'New' -%}<span class="badge">New</span>{%- endif -%}
       {%- if card_product.compare_at_price > card_product.price -%}<span class="badge">Sale</span>{%- endif -%}
     </div>
-
     {%- if card_product.available -%}
       {%- assign first_available = card_product.selected_or_first_available_variant -%}
       <div class="pcard-quick">
@@ -20,7 +18,6 @@
       </div>
     {%- endif -%}
   </div>
-
   <div class="pcard-vendor">{{ card_product.vendor }}</div>
   <h3 class="pcard-title">{{ card_product.title }}</h3>
   <div class="pcard-price">
