@@ -9,11 +9,10 @@
       <span class="eyebrow">{{ section.settings.eyebrow }}</span>
       <h1>{{ section.settings.heading }}</h1>
       <p class="hero-lead">{{ section.settings.subheading }}</p>
-      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn--primary btn--large">{{ section.settings.button_label }}</a>
+      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn--primary btn--large btn-magnetic">{{ section.settings.button_label }}</a>
     </div>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Hero",

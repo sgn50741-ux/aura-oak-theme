@@ -1,25 +1,18 @@
 {%- if section.settings.announce != blank -%}
-  <div class="announce">
-    <div class="announce-track">
-      <span>{{ section.settings.announce }}</span>
-      <span>{{ section.settings.announce }}</span>
-    </div>
-  </div>
+  <div class="announce">{{ section.settings.announce }}</div>
 {%- endif -%}
-
-<header class="site-header" data-header>
+<header class="site-header">
   <div class="container header-inner">
     <button class="menu-toggle" aria-label="Menu">
       <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <a href="{{ routes.root_url }}" class="logo">Aura <em>&</em> Oak</a>
-    <nav class="nav nav--main" data-nav>
-      <!-- SHOP mega menu -->
-      <div class="nav-item has-mega" data-mega>
-        <a href="/collections/all" class="nav-link">Shop <svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="mega-menu">
-          <div class="mega-inner">
-            <div class="mega-col">
+    <nav>
+      <ul class="nav">
+        <li>
+          <a href="/collections/all">Shop</a>
+          <div class="mega-menu">
+            <div>
               <h5>Collections</h5>
               <ul>
                 <li><a href="/collections/all">All Products</a></li>
@@ -30,43 +23,30 @@
                 <li><a href="/collections/accessories">Accessories</a></li>
               </ul>
             </div>
-            <div class="mega-col">
+            <div>
               <h5>By Scent</h5>
               <ul>
-                <li><a href="/collections/all/Woody">Woody</a></li>
-                <li><a href="/collections/all/Warm">Warm & Spicy</a></li>
-                <li><a href="/collections/all/Fresh">Fresh</a></li>
-                <li><a href="/collections/all/Floral">Floral</a></li>
-                <li><a href="/collections/all/Fruity">Fruity</a></li>
+                <li><a href="/collections/woody">Woody</a></li>
+                <li><a href="/collections/warm-spicy">Warm & Spicy</a></li>
+                <li><a href="/collections/fresh">Fresh</a></li>
+                <li><a href="/collections/floral">Floral</a></li>
+                <li><a href="/collections/fruity">Fruity</a></li>
               </ul>
             </div>
-            <div class="mega-col">
+            <div>
               <h5>Featured</h5>
               <ul>
-                <li><a href="/collections/all/Bestseller">Bestsellers</a></li>
-                <li><a href="/collections/all/New">New Arrivals</a></li>
-                <li><a href="/collections/gift-ideas">Gift Guide</a></li>
+                <li><a href="/collections/bestsellers">Bestsellers</a></li>
+                <li><a href="/collections/new-arrivals">New Arrivals</a></li>
+                <li><a href="/pages/gift-guide">Gift Guide</a></li>
               </ul>
             </div>
-            <div class="mega-feature">
-              <div class="mega-feature-img" style="background-image:url('https://images.unsplash.com/photo-1602874801007-aa24b6a6a1c8?w=600')"></div>
-              <div class="mega-feature-body">
-                <span class="eyebrow">New</span>
-                <h4>Evening Ritual Set</h4>
-                <p>A curated trio for slow evenings.</p>
-                <a href="/products/evening-ritual-gift-set" class="mega-feature-link">Shop now →</a>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- STUDIO mega menu -->
-      <div class="nav-item has-mega" data-mega>
-        <a href="/pages/our-story" class="nav-link">Studio <svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="mega-menu mega-menu--sm">
-          <div class="mega-inner">
-            <div class="mega-col">
+        </li>
+        <li>
+          <a href="/pages/our-story">Studio</a>
+          <div class="mega-menu mega-menu--small">
+            <div>
               <h5>About</h5>
               <ul>
                 <li><a href="/pages/our-story">Our Story</a></li>
@@ -74,7 +54,7 @@
                 <li><a href="/pages/wholesale">Wholesale</a></li>
               </ul>
             </div>
-            <div class="mega-col">
+            <div>
               <h5>Journal</h5>
               <ul>
                 <li><a href="/pages/journal">The Ritual Journal</a></li>
@@ -82,15 +62,11 @@
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- HELP mega menu -->
-      <div class="nav-item has-mega" data-mega>
-        <a href="/pages/faq" class="nav-link">Help <svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="mega-menu mega-menu--sm">
-          <div class="mega-inner">
-            <div class="mega-col">
+        </li>
+        <li>
+          <a href="/pages/faq">Help</a>
+          <div class="mega-menu mega-menu--small">
+            <div>
               <h5>Support</h5>
               <ul>
                 <li><a href="/pages/shipping">Shipping & Returns</a></li>
@@ -99,7 +75,7 @@
                 <li><a href="/pages/contact">Contact Us</a></li>
               </ul>
             </div>
-            <div class="mega-col">
+            <div>
               <h5>Your Account</h5>
               <ul>
                 <li><a href="{{ routes.account_url }}">Sign in</a></li>
@@ -107,11 +83,10 @@
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      <a href="/pages/journal" class="nav-link">Journal</a>
-      <a href="/pages/our-story" class="nav-link">Our Story</a>
+        </li>
+        <li><a href="/pages/journal">Journal</a></li>
+        <li><a href="/pages/our-story">Our Story</a></li>
+      </ul>
     </nav>
     <div class="header-icons">
       <a href="/search" aria-label="Search">
@@ -127,7 +102,6 @@
     </div>
   </div>
 </header>
-
 <div class="mobile-menu">
   <button class="mobile-menu-close" aria-label="Close">×</button>
   <a href="/collections/all">Shop All</a>
@@ -140,7 +114,6 @@
   <a href="/pages/faq">FAQ</a>
   <a href="/pages/contact">Contact</a>
 </div>
-
 {% schema %}
 {
   "name": "Header",

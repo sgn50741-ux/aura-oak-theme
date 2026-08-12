@@ -1,15 +1,15 @@
-<section class="marquee">
+<div class="marquee">
   <div class="marquee-track">
-    <span>{{ section.settings.text }} ✦ {{ section.settings.text }} ✦ {{ section.settings.text }} ✦ {{ section.settings.text }} ✦ </span>
-    <span>{{ section.settings.text }} ✦ {{ section.settings.text }} ✦ {{ section.settings.text }} ✦ {{ section.settings.text }} ✦ </span>
+    {%- for i in (1..10) -%}
+      <span class="marquee-item">{{ section.settings.text }}</span>
+    {%- endfor -%}
   </div>
-</section>
-
+</div>
 {% schema %}
 {
   "name": "Marquee",
   "settings": [
-    { "type": "text", "id": "text", "label": "Text", "default": "Hand-poured in Portland ✦ Small batch ✦ 100% soy wax ✦ Clean burning ✦" }
+    { "type": "text", "id": "text", "label": "Marquee text", "default": "Hand-poured in Portland ✦ Small batch ✦ 100% soy wax ✦ Clean burning ✦ Phthalate-free" }
   ],
   "presets": [{ "name": "Marquee" }]
 }
