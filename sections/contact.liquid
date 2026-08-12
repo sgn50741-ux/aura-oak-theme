@@ -1,0 +1,45 @@
+
+<section class="contact-grid">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:var(--container)">
+    <div class="contact-info reveal-left">
+      <span class="eyebrow">Get in touch</span>
+      <h3 style="font-size:clamp(1.8rem,3vw,2.4rem);margin:16px 0 32px">We'd love to hear from you.</h3>
+      
+      <div class="contact-block">
+        <h4>Email</h4>
+        <p><a href="mailto:hello@auraandoak.com">hello@auraandoak.com</a></p>
+      </div>
+      <div class="contact-block">
+        <h4>Studio</h4>
+        <p>1247 NW Lovejoy Street<br>Portland, OR 97209</p>
+      </div>
+      <div class="contact-block">
+        <h4>Hours</h4>
+        <p>Monday – Friday: 10am – 6pm<br>Saturday: 11am – 5pm<br>Sunday: Closed</p>
+      </div>
+      <div class="contact-block">
+        <h4>Wholesale</h4>
+        <p><a href="/pages/wholesale">wholesale@auraandoak.com</a></p>
+      </div>
+    </div>
+
+    <div class="reveal-right">
+      <form class="contact-form" method="post" action="/contact">
+        <input type="hidden" name="form_type" value="contact">
+        <input type="text" name="contact[name]" placeholder="Your name" required>
+        <input type="email" name="contact[email]" placeholder="Your email" required>
+        <input type="text" name="contact[subject]" placeholder="Subject">
+        <textarea name="contact[body]" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn--primary btn--full">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [],
+  "presets": [{ "name": "Contact" }]
+}
+{% endschema %}
