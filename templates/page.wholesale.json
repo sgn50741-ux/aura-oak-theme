@@ -4,15 +4,28 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Wholesale",
-        "heading": "Bring Aura & Oak to your space."
+        "heading": "Wholesale Partnerships"
       }
     },
     "wholesale": {
-      "type": "wholesale"
+      "type": "wholesale",
+      "settings": {
+        "heading": "Wholesale Partnerships",
+        "intro": "We partner with select retailers who share our commitment to quality, craftsmanship, and mindful living. If you're interested in carrying Aura & Oak in your store, we'd love to hear from you.",
+        "benefit_title_1": "Competitive Margins",
+        "benefit_text_1": "Wholesale pricing starts at 50% off retail, with volume discounts available for larger orders.",
+        "benefit_title_2": "Minimum Orders",
+        "benefit_text_2": "Our minimum opening order is $500. Reorders have a $250 minimum.",
+        "benefit_title_3": "Fast Shipping",
+        "benefit_text_3": "Orders ship within 3-5 business days. We offer flat-rate shipping and free shipping on orders over $1,000.",
+        "benefit_title_4": "Marketing Support",
+        "benefit_text_4": "We provide product photography, display materials, and marketing assets to help you sell our products.",
+        "cta_heading": "Ready to partner?",
+        "cta_text": "Email us at wholesale@auraandoak.com with your store information and we'll send you our wholesale catalog and application.",
+        "cta_email": "wholesale@auraandoak.com",
+        "cta_button": "Apply now"
+      }
     }
   },
-  "order": [
-    "hero",
-    "wholesale"
-  ]
+  "order": ["hero", "wholesale"]
 }
