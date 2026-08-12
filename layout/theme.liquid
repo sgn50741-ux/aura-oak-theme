@@ -13,16 +13,21 @@
   {{ 'aura.css' | asset_url | stylesheet_tag }}
 </head>
 <body class="template-{{ template.name }} {% if template.suffix %}template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+
   {% section 'header' %}
+
   <main id="MainContent" class="main">
     {{ content_for_layout }}
   </main>
+
   {% section 'footer' %}
   {% section 'cart-drawer' %}
+
   <script>window.AURA = { moneyFormat: {{ shop.money_format | json }}, currency: {{ cart.currency.iso_code | json }} };</script>
   {{ 'aura.js' | asset_url | script_tag }}
+  
   <script>
-    window.addEventListener('load', () => {
+    document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.add('loaded');
     });
   </script>
