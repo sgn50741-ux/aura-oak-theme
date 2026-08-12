@@ -1,38 +1,12 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero",
-      "settings": {
-        "heading": "The quiet <em>ritual</em> of home.",
-        "subheading": "Small-batch soy candles, hand-thrown ceramic diffusers, and fragrances designed for the spaces where you slow down."
-      }
-    },
-    "marquee": {
-      "type": "marquee"
-    },
-    "tiles": {
-      "type": "category-tiles"
-    },
-    "featured": {
-      "type": "featured-products"
-    },
-    "story": {
-      "type": "story"
-    },
-    "journal": {
-      "type": "ritual-journal"
-    },
-    "newsletter": {
-      "type": "newsletter"
-    }
+    "hero": { "type": "hero", "settings": { "image_url": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=2560" } },
+    "marquee": { "type": "marquee" },
+    "tiles": { "type": "category-tiles" },
+    "featured": { "type": "featured-products" },
+    "story": { "type": "story" },
+    "journal": { "type": "ritual-journal" },
+    "newsletter": { "type": "newsletter" }
   },
-  "order": [
-    "hero",
-    "marquee",
-    "tiles",
-    "featured",
-    "story",
-    "journal",
-    "newsletter"
-  ]
+  "order": ["hero", "marquee", "tiles", "featured", "story", "journal", "newsletter"]
 }
