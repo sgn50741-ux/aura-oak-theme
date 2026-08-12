@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aura & Oak",
+    "theme_version": "1.0.0",
+    "theme_author": "Aura & Oak Studio"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "Background",
+        "default": "#FAF6F0"
+      },
+      {
+        "type": "color",
+        "id": "ink",
+        "label": "Text",
+        "default": "#211D19"
+      },
+      {
+        "type": "color",
+        "id": "accent",
+        "label": "Accent",
+        "default": "#9C6B45"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (in dollars)",
+        "default": 75
+      }
+    ]
+  }
+]
