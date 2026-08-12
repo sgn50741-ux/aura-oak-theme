@@ -3,16 +3,29 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "The Ritual Journal",
-        "heading": "Notes on scent, space, and slowing down."
+        "eyebrow": "Journal",
+        "heading": "The Ritual Journal"
       }
     },
     "journal": {
-      "type": "ritual-journal"
+      "type": "ritual-journal",
+      "settings": {
+        "heading": "The Ritual Journal",
+        "subheading": "Notes on mindful living, scent, and the art of slowing down.",
+        "article_title_1": "The Art of the Evening Ritual",
+        "article_excerpt_1": "How a simple candle-lighting practice can transform your evenings from chaotic to calm.",
+        "article_link_1": "/blogs/journal/evening-ritual",
+        "article_image_1": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=1200",
+        "article_title_2": "Scent and Memory",
+        "article_excerpt_2": "Why certain fragrances transport us back in time, and how to create your own scent memories.",
+        "article_link_2": "/blogs/journal/scent-and-memory",
+        "article_image_2": "https://images.unsplash.com/photo-1603001535220-3b9c4b8a5b8c?w=1200",
+        "article_title_3": "Candle Care 101",
+        "article_excerpt_3": "Everything you need to know to get the most out of your hand-poured soy candles.",
+        "article_link_3": "/pages/candle-care",
+        "article_image_3": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200"
+      }
     }
   },
-  "order": [
-    "hero",
-    "journal"
-  ]
+  "order": ["hero", "journal"]
 }
