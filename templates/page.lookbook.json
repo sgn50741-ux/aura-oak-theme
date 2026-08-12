@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Lookbook",
+        "heading": "The spaces we live in.",
+        "subheading": "A visual journal of rooms, rituals, and quiet moments."
+      }
+    },
+    "lookbook": {
+      "type": "lookbook"
+    }
+  },
+  "order": [
+    "hero",
+    "lookbook"
+  ]
+}
