@@ -1,69 +1,35 @@
-<section class="section">
+<section class="content-block">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h2>{{ section.settings.heading }}</h2>
-        <div class="contact-details">
-          {%- if section.settings.email != blank -%}
-            <div class="contact-item">
-              <strong>Email</strong>
-              <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
-            </div>
-          {%- endif -%}
-          {%- if section.settings.phone != blank -%}
-            <div class="contact-item">
-              <strong>Phone</strong>
-              <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
-            </div>
-          {%- endif -%}
-          {%- if section.settings.address != blank -%}
-            <div class="contact-item">
-              <strong>Studio</strong>
-              <p>{{ section.settings.address }}</p>
-            </div>
-          {%- endif -%}
-          {%- if section.settings.hours != blank -%}
-            <div class="contact-item">
-              <strong>Hours</strong>
-              <p>{{ section.settings.hours }}</p>
-            </div>
-          {%- endif -%}
+        <div class="contact-block">
+          <h4>Studio</h4>
+          <p>1234 Burnside Street<br>Portland, OR 97209<br>United States</p>
+        </div>
+        <div class="contact-block">
+          <h4>Email</h4>
+          <p>hello@auraandoak.com<br>wholesale@auraandoak.com</p>
+        </div>
+        <div class="contact-block">
+          <h4>Hours</h4>
+          <p>Monday – Friday: 9am – 6pm PST<br>Saturday: 10am – 4pm PST<br>Sunday: Closed</p>
+        </div>
+        <div class="contact-block">
+          <h4>Follow us</h4>
+          <p><a href="#">Instagram</a> · <a href="#">Pinterest</a> · <a href="#">TikTok</a></p>
         </div>
       </div>
-      
-      <div class="contact-form reveal delay-1">
-        <h3>{{ section.settings.form_heading }}</h3>
-        {%- form 'contact' -%}
-          <div class="form-group">
-            <label for="ContactFormName">Name</label>
-            <input type="text" id="ContactFormName" name="contact[name]" required>
-          </div>
-          <div class="form-group">
-            <label for="ContactFormEmail">Email</label>
-            <input type="email" id="ContactFormEmail" name="contact[email]" required>
-          </div>
-          <div class="form-group">
-            <label for="ContactFormMessage">Message</label>
-            <textarea id="ContactFormMessage" name="contact[body]" rows="5" required></textarea>
-          </div>
+      <div class="reveal delay-1">
+        <form class="contact-form" method="post" action="/contact">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="text" name="contact[name]" placeholder="Your name" required>
+          <input type="email" name="contact[email]" placeholder="Your email" required>
+          <input type="text" name="contact[subject]" placeholder="Subject">
+          <textarea name="contact[body]" placeholder="Your message" required></textarea>
           <button type="submit" class="btn btn--primary btn--full">Send message</button>
-        {%- endform -%}
+        </form>
       </div>
     </div>
   </div>
 </section>
-
-{% schema %}
-{
-  "name": "Contact",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch" },
-    { "type": "text", "id": "email", "label": "Email", "default": "hello@auraandoak.com" },
-    { "type": "text", "id": "phone", "label": "Phone" },
-    { "type": "textarea", "id": "address", "label": "Address" },
-    { "type": "textarea", "id": "hours", "label": "Hours" },
-    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Send us a message" }
-  ],
-  "presets": [{ "name": "Contact" }]
-}
-{% endschema %}
+{% schema %}{ "name": "Contact" }{% endschema %}

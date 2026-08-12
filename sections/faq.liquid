@@ -1,47 +1,54 @@
-<section class="section">
+<section class="content-block">
   <div class="container">
-    <div class="faq-intro reveal">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
-    </div>
-    
     <div class="faq-categories reveal">
-      {%- for block in section.blocks -%}
-        <button class="faq-category-btn" data-category="{{ block.settings.category | handleize }}">{{ block.settings.category }}</button>
-      {%- endfor -%}
+      <button class="faq-cat is-active" data-category="all">All</button>
+      <button class="faq-cat" data-category="candles">Candles</button>
+      <button class="faq-cat" data-category="diffusers">Diffusers</button>
+      <button class="faq-cat" data-category="shipping">Shipping</button>
+      <button class="faq-cat" data-category="care">Care</button>
     </div>
-    
-    <div class="faq-list reveal">
-      {%- for block in section.blocks -%}
-        <details class="faq-item" data-category="{{ block.settings.category | handleize }}">
-          <summary>{{ block.settings.question }}</summary>
-          <div class="faq-answer">
-            <div class="rte">{{ block.settings.answer }}</div>
-          </div>
-        </details>
-      {%- endfor -%}
+    <div class="faq-list stagger">
+      <div class="faq-item" data-category="candles">
+        <div class="faq-q">How long do your candles burn?</div>
+        <div class="faq-a">Our 8 oz candles burn for approximately 40-50 hours, and our 13 oz candles burn for 70-90 hours. Always trim the wick to 1/4 inch before each burn for optimal performance.</div>
+      </div>
+      <div class="faq-item" data-category="candles">
+        <div class="faq-q">What makes your candles different?</div>
+        <div class="faq-a">We use 100% soy wax (never paraffin), phthalate-free fragrances, and cotton wicks. Each candle is hand-poured in small batches in our Portland studio, ensuring quality and consistency.</div>
+      </div>
+      <div class="faq-item" data-category="diffusers">
+        <div class="faq-q">How long do reed diffusers last?</div>
+        <div class="faq-a">Our reed diffusers last approximately 3-4 months. Flip the reeds every 2-3 weeks to refresh the scent. Replace reeds when they become saturated or dusty.</div>
+      </div>
+      <div class="faq-item" data-category="diffusers">
+        <div class="faq-q">Are your diffusers safe for pets?</div>
+        <div class="faq-a">Our diffusers use phthalate-free fragrances, but we recommend keeping them out of reach of pets and children. Some essential oils can be sensitive for certain animals, so consult your vet if you have concerns.</div>
+      </div>
+      <div class="faq-item" data-category="shipping">
+        <div class="faq-q">How much is shipping?</div>
+        <div class="faq-a">Complimentary standard shipping on orders over $75. Orders under $75 ship for $8 flat rate within the continental US. International shipping available at checkout.</div>
+      </div>
+      <div class="faq-item" data-category="shipping">
+        <div class="faq-q">How long does shipping take?</div>
+        <div class="faq-a">Orders ship within 1-2 business days. Standard shipping takes 3-5 business days within the continental US. Express shipping (1-2 days) available at checkout.</div>
+      </div>
+      <div class="faq-item" data-category="shipping">
+        <div class="faq-q">What's your return policy?</div>
+        <div class="faq-a">We accept returns within 30 days of delivery on unopened items. Opened candles and diffusers cannot be returned due to their nature, but we stand behind our quality — contact us if you have any issues.</div>
+      </div>
+      <div class="faq-item" data-category="care">
+        <div class="faq-q">How do I care for my candle?</div>
+        <div class="faq-a">Trim the wick to 1/4 inch before each burn. Allow the wax pool to reach the edge on the first burn (about 2 hours for 8 oz) to prevent tunneling. Never burn for more than 4 hours at a time. Snuff, don't blow, to preserve the scent.</div>
+      </div>
+      <div class="faq-item" data-category="care">
+        <div class="faq-q">Can I reuse the vessel?</div>
+        <div class="faq-a">Absolutely! Once the candle is finished, remove remaining wax with hot water. Our ceramic vessels are designed to be reused as planters, pen holders, or purchase refills to continue the ritual.</div>
+      </div>
+      <div class="faq-item" data-category="care">
+        <div class="faq-q">How do I care for my diffuser?</div>
+        <div class="faq-a">Flip reeds every 2-3 weeks. Keep away from direct sunlight and heat sources. Replace reeds when they become saturated (usually after 3-4 months). Refill with our concentrated aroma oils when the liquid runs low.</div>
+      </div>
     </div>
   </div>
 </section>
-
-{% schema %}
-{
-  "name": "FAQ",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading" }
-  ],
-  "blocks": [
-    {
-      "type": "faq",
-      "name": "FAQ Item",
-      "settings": [
-        { "type": "text", "id": "category", "label": "Category", "default": "General" },
-        { "type": "text", "id": "question", "label": "Question" },
-        { "type": "richtext", "id": "answer", "label": "Answer" }
-      ]
-    }
-  ],
-  "presets": [{ "name": "FAQ" }]
-}
-{% endschema %}
+{% schema %}{ "name": "FAQ" }{% endschema %}

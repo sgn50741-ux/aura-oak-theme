@@ -1,75 +1,43 @@
-<section class="section">
+<section class="content-block">
   <div class="container">
-    <div class="our-story-grid">
-      <div class="our-story-text reveal">
-        <h2>{{ section.settings.heading }}</h2>
-        <div class="rte">{{ section.settings.body }}</div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2017</div>
+          <h3>The first pour</h3>
+          <p>Started in a converted garage in Portland with one candle — Amber & Oakmoss — and a belief that scent should be made with care.</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div></div>
       </div>
-      <div class="our-story-image reveal delay-1">
-        {%- if section.settings.image_url != blank -%}
-          <img src="{{ section.settings.image_url }}" alt="{{ section.settings.heading | escape }}">
-        {%- endif -%}
+      <div class="timeline-item">
+        <div></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2019</div>
+          <h3>The studio</h3>
+          <p>Moved into our dedicated studio space. Started working with local ceramicists for hand-thrown vessels.</p>
+        </div>
       </div>
-    </div>
-    
-    {%- if section.blocks.size > 0 -%}
-      <div class="timeline reveal">
-        {%- for block in section.blocks -%}
-          <div class="timeline-item">
-            <div class="timeline-year">{{ block.settings.year }}</div>
-            <div class="timeline-content">
-              <h3>{{ block.settings.title }}</h3>
-              <p>{{ block.settings.text }}</p>
-            </div>
-          </div>
-        {%- endfor -%}
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2021</div>
+          <h3>Diffusers launched</h3>
+          <p>Expanded into ceramic reed diffusers and room sprays, completing our home fragrance collection.</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div></div>
       </div>
-    {%- endif -%}
-    
-    <div class="values-grid reveal">
-      {%- for i in (1..4) -%}
-        {%- assign title_key = 'value_title_' | append: i -%}
-        {%- assign text_key = 'value_text_' | append: i -%}
-        {%- assign title = section.settings[title_key] -%}
-        {%- assign text = section.settings[text_key] -%}
-        {%- if title != blank -%}
-          <div class="value-card">
-            <h3>{{ title }}</h3>
-            <p>{{ text }}</p>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+      <div class="timeline-item">
+        <div></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <h3>Refillable systems</h3>
+          <p>Introduced refillable vessels and concentrated aroma oils, reducing waste while maintaining quality.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-{% schema %}
-{
-  "name": "Our Story",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Story" },
-    { "type": "richtext", "id": "body", "label": "Body" },
-    { "type": "text", "id": "image_url", "label": "Image URL" },
-    { "type": "text", "id": "value_title_1", "label": "Value 1 title", "default": "Small batch" },
-    { "type": "textarea", "id": "value_text_1", "label": "Value 1 text", "default": "Every candle poured by hand in our Portland studio." },
-    { "type": "text", "id": "value_title_2", "label": "Value 2 title", "default": "Clean ingredients" },
-    { "type": "textarea", "id": "value_text_2", "label": "Value 2 text", "default": "100% soy wax, phthalate-free fragrances, cotton wicks." },
-    { "type": "text", "id": "value_title_3", "label": "Value 3 title", "default": "Sustainable" },
-    { "type": "textarea", "id": "value_text_3", "label": "Value 3 text", "default": "Refillable vessels, recyclable packaging, carbon-neutral shipping." },
-    { "type": "text", "id": "value_title_4", "label": "Value 4 title", "default": "Community" },
-    { "type": "textarea", "id": "value_text_4", "label": "Value 4 text", "default": "Supporting local artisans and makers in the Pacific Northwest." }
-  ],
-  "blocks": [
-    {
-      "type": "timeline",
-      "name": "Timeline",
-      "settings": [
-        { "type": "text", "id": "year", "label": "Year" },
-        { "type": "text", "id": "title", "label": "Title" },
-        { "type": "textarea", "id": "text", "label": "Text" }
-      ]
-    }
-  ],
-  "presets": [{ "name": "Our Story" }]
-}
-{% endschema %}
+{% schema %}{ "name": "Our Story" }{% endschema %}
