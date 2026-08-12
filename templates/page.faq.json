@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Help",
+        "heading": "Frequently asked questions.",
+        "subheading": "Everything you need to know, answered."
+      }
+    },
+    "faq": {
+      "type": "faq"
+    }
+  },
+  "order": [
+    "hero",
+    "faq"
+  ]
+}
