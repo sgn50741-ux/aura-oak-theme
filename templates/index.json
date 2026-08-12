@@ -1,12 +1,82 @@
 {
   "sections": {
-    "hero": { "type": "hero", "settings": { "image_url": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=2560" } },
-    "marquee": { "type": "marquee" },
-    "tiles": { "type": "category-tiles" },
-    "featured": { "type": "featured-products" },
-    "story": { "type": "story" },
-    "journal": { "type": "ritual-journal" },
-    "newsletter": { "type": "newsletter" }
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Hand-poured in Portland",
+        "heading": "The quiet <em>ritual</em> of home.",
+        "subheading": "Small-batch soy candles, hand-thrown ceramic diffusers, and fragrances designed for the spaces where you slow down.",
+        "button_label": "Shop the collection",
+        "button_link": "/collections/all"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "text": "Hand-poured in Portland \u2726 100% soy wax \u2726 Small batch \u2726 Phthalate-free \u2726 Refillable vessels \u2726 Free shipping over $75 \u2726"
+      }
+    },
+    "tiles": {
+      "type": "category-tiles",
+      "settings": {
+        "eyebrow": "Shop by collection",
+        "heading": "Three rituals, one philosophy.",
+        "collection_1": "candles",
+        "label_1": "Candles",
+        "collection_2": "diffusers",
+        "label_2": "Diffusers",
+        "collection_3": "home-fragrance",
+        "label_3": "Home Fragrance"
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "The ones that linger.",
+        "subheading": "Our most-loved fragrances, chosen again and again by the people who live with them.",
+        "handles": "santal-noir-soy-candle,amber-oakmoss-soy-candle,terra-ceramic-reed-diffuser,discovery-set-six-mini-candles",
+        "view_all_label": "View all products",
+        "view_all_link": "/collections/all"
+      }
+    },
+    "story": {
+      "type": "story",
+      "settings": {
+        "eyebrow": "Our studio",
+        "heading": "Fragrance as a practice.",
+        "body": "We started Aura & Oak in a converted garage in Portland with one candle \u2014 Amber & Oakmoss \u2014 and a belief that the things we smell every day should be made with as much care as the things we eat and the things we read. Seven years later, we're still a small studio, still pouring by hand, still obsessed with the way a scent can make a room feel like home."
+      }
+    },
+    "journal": {
+      "type": "ritual-journal",
+      "settings": {
+        "eyebrow": "The Ritual Journal",
+        "heading": "Notes on slow living.",
+        "subheading": "Essays, rituals, and studio dispatches."
+      }
+    },
+    "lookbook": {
+      "type": "lookbook",
+      "settings": {
+        "eyebrow": "Lookbook",
+        "heading": "A visual journey.",
+        "subheading": "Scenes from the spaces we create."
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
   },
-  "order": ["hero", "marquee", "tiles", "featured", "story", "journal", "newsletter"]
+  "order": [
+    "hero",
+    "marquee",
+    "tiles",
+    "featured",
+    "story",
+    "journal",
+    "lookbook",
+    "newsletter"
+  ]
 }
