@@ -4,22 +4,29 @@
       <div class="footer-brand">
         <a href="{{ routes.root_url }}" class="logo">Aura <em>&</em> Oak</a>
         <p>Hand-poured soy candles, ceramic diffusers, and artisan home fragrances. Made in small batches in Portland, Oregon.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 20l4-12M12 8c3 0 5 2 5 4s-2 4-5 4"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg class="icon" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4c1 2 3 3 5 3"/></svg></a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Shop</h5>
         <ul>
+          <li><a href="/collections/all">All Products</a></li>
           <li><a href="/collections/candles">Candles</a></li>
           <li><a href="/collections/diffusers">Diffusers</a></li>
           <li><a href="/collections/home-fragrance">Home Fragrance</a></li>
-          <li><a href="/collections/gift-ideas">Gifts</a></li>
-          <li><a href="/collections/all">All products</a></li>
+          <li><a href="/collections/gift-ideas">Gift Sets</a></li>
+          <li><a href="/collections/accessories">Accessories</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Studio</h5>
         <ul>
-          <li><a href="/pages/our-story">Our story</a></li>
+          <li><a href="/pages/our-story">Our Story</a></li>
           <li><a href="/pages/journal">The Ritual Journal</a></li>
+          <li><a href="/pages/lookbook">Lookbook</a></li>
           <li><a href="/pages/sustainability">Sustainability</a></li>
           <li><a href="/pages/wholesale">Wholesale</a></li>
         </ul>
@@ -27,17 +34,20 @@
       <div class="footer-col">
         <h5>Help</h5>
         <ul>
-          <li><a href="/pages/shipping">Shipping & returns</a></li>
+          <li><a href="/pages/shipping">Shipping & Returns</a></li>
           <li><a href="/pages/faq">FAQ</a></li>
-          <li><a href="/pages/contact">Contact</a></li>
-          <li><a href="/pages/candle-care">Candle care</a></li>
+          <li><a href="/pages/candle-care">Candle Care</a></li>
+          <li><a href="/pages/contact">Contact Us</a></li>
           <li><a href="{{ routes.account_url }}">Account</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Hand-poured in Portland.</span>
-      <span>{{ powered_by_link }}</span>
+      <div class="footer-legal">
+        <a href="/pages/shipping">Privacy Policy</a>
+        <a href="/pages/shipping">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
