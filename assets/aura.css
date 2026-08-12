@@ -135,3 +135,36 @@ details{border-bottom:1px solid var(--line-soft);padding:18px 0}summary{cursor:p
 @media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,1fr)}.values-grid,.benefits-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}.article-list{grid-template-columns:repeat(2,1fr)}.account-grid{grid-template-columns:1fr}}
 @media(max-width:900px){.nav{display:none}.menu-toggle{display:flex}.collection-layout{grid-template-columns:1fr}.filter-bar{position:static}.pdp{grid-template-columns:1fr}.pdp-gallery{position:static}.story,.split,.contact-grid{grid-template-columns:1fr}.tiles,.t-grid,.j-grid,.gift-cards{grid-template-columns:1fr}.lookbook-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}.review-list{grid-template-columns:1fr}.cart-row{grid-template-columns:64px 1fr;row-gap:8px}.values-grid,.benefits-grid,.stats-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.product-grid{grid-template-columns:repeat(2,1fr);gap:24px 12px}.lookbook-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.newsletter-form{flex-direction:column}.article-list{grid-template-columns:1fr}}
+
+/* === RICH MEGA MENU === */
+.mega-wide{width:min(1080px,95vw);padding:36px 40px 24px}
+.mega-md{width:min(720px,94vw)}
+.mega-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.mega-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.mega-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.mega-sm .mega-inner{grid-template-columns:1fr 1fr}
+
+.mega-product{display:flex;flex-direction:column;gap:3px;padding:10px 12px;border-radius:8px;transition:background .2s ease,transform .2s ease;color:var(--ink)}
+.mega-product:hover{background:var(--cream2);transform:translateX(3px)}
+.mp-name{font-family:var(--serif);font-size:15px;font-weight:400;line-height:1.25;color:var(--ink)}
+.mp-meta{font-size:12px;color:var(--ink-soft);letter-spacing:.02em}
+
+.mega-scent{padding:12px 14px;border-radius:8px;border:1px solid var(--line-soft);background:var(--cream2);display:flex;flex-direction:column;gap:4px;transition:border-color .2s ease}
+.mega-scent:hover{border-color:var(--oak)}
+.mega-scent strong{font-size:13px;color:var(--ink);letter-spacing:.04em}
+.mega-scent span{font-size:12px;color:var(--ink-soft);font-style:italic}
+.mega-scent a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--oak);margin-top:4px;font-weight:500}
+
+.mega-foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.mega-foot a{color:var(--oak)}
+.mega-foot a:hover{color:var(--ink)}
+
+/* Click-to-open fallback (for touch + reliable hover) */
+.nav-item.is-open .mega{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.nav-item.is-open .nav-link{color:var(--oak)}
+
+@media (max-width:900px){
+  .mega{display:none !important}
+  .nav{display:none}
+  .menu-toggle{display:flex !important}
+}
