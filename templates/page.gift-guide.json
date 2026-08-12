@@ -4,16 +4,15 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Gift guide",
-        "heading": "Gifts, thoughtfully chosen.",
-        "subheading": "Curated combinations for every kind of recipient."
+        "heading": "Thoughtful gifts for every occasion."
       }
     },
-    "content": {
-      "type": "gift-guide-content"
+    "guide": {
+      "type": "gift-guide"
     }
   },
   "order": [
     "hero",
-    "content"
+    "guide"
   ]
 }
