@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Shipping",
+        "heading": "Shipping & returns.",
+        "subheading": "Everything you need to know about getting your order."
+      }
+    },
+    "content": {
+      "type": "shipping-returns"
+    }
+  },
+  "order": [
+    "hero",
+    "content"
+  ]
+}
