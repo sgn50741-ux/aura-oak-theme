@@ -1,39 +1,35 @@
 <section class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">The Ritual Journal</span>
-      <h2>Notes on scent, space, and slowing down.</h2>
+    <div class="journal-intro reveal">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
     </div>
     
-    <div class="journal-grid stagger">
+    <div class="journal-grid reveal">
       {%- for i in (1..3) -%}
-        {%- assign title_key = 'title_' | append: i -%}
-        {%- assign category_key = 'category_' | append: i -%}
-        {%- assign excerpt_key = 'excerpt_' | append: i -%}
-        {%- assign image_key = 'image_url_' | append: i -%}
-        {%- assign link_key = 'link_' | append: i -%}
-        
-        <article class="journal-card">
-          {%- assign img = section.settings[image_key] -%}
-          <div class="journal-card-image">
+        {%- assign title_key = 'article_title_' | append: i -%}
+        {%- assign excerpt_key = 'article_excerpt_' | append: i -%}
+        {%- assign link_key = 'article_link_' | append: i -%}
+        {%- assign img_key = 'article_image_' | append: i -%}
+        {%- assign title = section.settings[title_key] -%}
+        {%- assign excerpt = section.settings[excerpt_key] -%}
+        {%- assign link = section.settings[link_key] -%}
+        {%- assign img = section.settings[img_key] -%}
+        {%- if title != blank -%}
+          <article class="journal-card">
             {%- if img != blank -%}
-              <img src="{{ img }}" alt="{{ section.settings[title_key] }}" loading="lazy">
-            {%- else -%}
-              <div style="width:100%;height:100%;background:var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;color:var(--oak);opacity:.3">A&O</div>
+              <div class="journal-image">
+                <img src="{{ img }}" alt="{{ title | escape }}" loading="lazy">
+              </div>
             {%- endif -%}
-          </div>
-          <div class="journal-card-content">
-            <div class="journal-card-category">{{ section.settings[category_key] | default: 'Rituals' }}</div>
-            <h3 class="journal-card-title">{{ section.settings[title_key] | default: 'Article title' }}</h3>
-            <p class="journal-card-excerpt">{{ section.settings[excerpt_key] | default: 'Article excerpt goes here.' }}</p>
-            <a href="{{ section.settings[link_key] | default: '/pages/journal' }}" class="journal-card-link">Read more →</a>
-          </div>
-        </article>
+            <div class="journal-content">
+              <h3>{{ title }}</h3>
+              <p>{{ excerpt }}</p>
+              <a href="{{ link }}" class="journal-link">Read more →</a>
+            </div>
+          </article>
+        {%- endif -%}
       {%- endfor -%}
-    </div>
-    
-    <div class="text-center reveal" style="margin-top:48px">
-      <a href="/pages/journal" class="btn btn--ghost">View all articles</a>
     </div>
   </div>
 </section>
@@ -42,21 +38,20 @@
 {
   "name": "Ritual Journal",
   "settings": [
-    { "type": "text", "id": "title_1", "label": "Article 1 title", "default": "The art of the evening ritual" },
-    { "type": "text", "id": "category_1", "label": "Article 1 category", "default": "Rituals" },
-    { "type": "textarea", "id": "excerpt_1", "label": "Article 1 excerpt", "default": "How a simple candle-lighting practice can transform your evenings from chaotic to calm." },
-    { "type": "text", "id": "image_url_1", "label": "Article 1 image URL" },
-    { "type": "url", "id": "link_1", "label": "Article 1 link" },
-    { "type": "text", "id": "title_2", "label": "Article 2 title", "default": "Scent and memory" },
-    { "type": "text", "id": "category_2", "label": "Article 2 category", "default": "Science" },
-    { "type": "textarea", "id": "excerpt_2", "label": "Article 2 excerpt", "default": "Why certain fragrances transport us back in time, and how to create your own scent memories." },
-    { "type": "text", "id": "image_url_2", "label": "Article 2 image URL" },
-    { "type": "url", "id": "link_2", "label": "Article 2 link" },
-    { "type": "text", "id": "title_3", "label": "Article 3 title", "default": "Candle care 101" },
-    { "type": "text", "id": "category_3", "label": "Article 3 category", "default": "Guides" },
-    { "type": "textarea", "id": "excerpt_3", "label": "Article 3 excerpt", "default": "Everything you need to know to get the most from every burn, from wick trimming to proper storage." },
-    { "type": "text", "id": "image_url_3", "label": "Article 3 image URL" },
-    { "type": "url", "id": "link_3", "label": "Article 3 link" }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Ritual Journal" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "article_title_1", "label": "Article 1 title" },
+    { "type": "textarea", "id": "article_excerpt_1", "label": "Article 1 excerpt" },
+    { "type": "url", "id": "article_link_1", "label": "Article 1 link" },
+    { "type": "text", "id": "article_image_1", "label": "Article 1 image URL" },
+    { "type": "text", "id": "article_title_2", "label": "Article 2 title" },
+    { "type": "textarea", "id": "article_excerpt_2", "label": "Article 2 excerpt" },
+    { "type": "url", "id": "article_link_2", "label": "Article 2 link" },
+    { "type": "text", "id": "article_image_2", "label": "Article 2 image URL" },
+    { "type": "text", "id": "article_title_3", "label": "Article 3 title" },
+    { "type": "textarea", "id": "article_excerpt_3", "label": "Article 3 excerpt" },
+    { "type": "url", "id": "article_link_3", "label": "Article 3 link" },
+    { "type": "text", "id": "article_image_3", "label": "Article 3 image URL" }
   ],
   "presets": [{ "name": "Ritual Journal" }]
 }
