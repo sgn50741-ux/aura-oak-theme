@@ -1,42 +1,62 @@
-
-<section class="gift-guide">
+<section class="section">
   <div class="container">
-    <div class="reveal">
-      <h2>Gifts, thoughtfully chosen</h2>
-      <p>Not sure where to start? We've curated a few combinations for every kind of recipient.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Gift guide</span>
+      <h2>Thoughtful gifts for every occasion.</h2>
     </div>
-    <div class="gift-category reveal">
-      <h2>For the newcomer</h2>
-      <p>Someone discovering the ritual for the first time.</p>
-      <div class="gift-grid stagger">
-        <div class="gift-card"><div class="gift-card-price">$28</div><h4>Discovery Set</h4><p>Six mini candles in our most-loved scents.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$42</div><h4>Amber & Oakmoss 8oz</h4><p>Our signature scent. Warm, grounding, universally loved.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$38</div><h4>Care Kit</h4><p>Wick trimmer, matches, and a snuffer.</p></div>
+    
+    <div class="gift-categories stagger">
+      <div class="gift-category">
+        {%- if section.settings.image_url_1 != blank -%}
+          <div class="gift-category-bg" style="background-image:url('{{ section.settings.image_url_1 }}')"></div>
+        {%- endif -%}
+        <div class="gift-category-content">
+          <h3>{{ section.settings.title_1 | default: 'For the Host' }}</h3>
+          <p>{{ section.settings.desc_1 | default: 'Candles, diffusers, and room sprays for the friend who loves to entertain.' }}</p>
+          <a href="{{ section.settings.link_1 | default: '/collections/gift-ideas' }}" class="btn btn--ghost" style="margin-top:16px;background:rgba(250,246,240,.9);color:var(--ink)">Shop now</a>
+        </div>
       </div>
-    </div>
-    <div class="gift-category reveal">
-      <h2>For the host</h2>
-      <p>The friend who always has the most beautiful home.</p>
-      <div class="gift-grid stagger">
-        <div class="gift-card"><div class="gift-card-price">$78</div><h4>Terra Ceramic Diffuser</h4><p>Hand-thrown vessel with rattan reeds.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$54</div><h4>Santal Noir 13oz</h4><p>Our largest candle. Warm sandalwood and cedar.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$32</div><h4>Room & Linen Mist</h4><p>A quick refresh for any space.</p></div>
+      <div class="gift-category">
+        {%- if section.settings.image_url_2 != blank -%}
+          <div class="gift-category-bg" style="background-image:url('{{ section.settings.image_url_2 }}')"></div>
+        {%- endif -%}
+        <div class="gift-category-content">
+          <h3>{{ section.settings.title_2 | default: 'For the Ritualist' }}</h3>
+          <p>{{ section.settings.desc_2 | default: 'Discovery sets and care kits for the one who savors the small moments.' }}</p>
+          <a href="{{ section.settings.link_2 | default: '/collections/gift-ideas' }}" class="btn btn--ghost" style="margin-top:16px;background:rgba(250,246,240,.9);color:var(--ink)">Shop now</a>
+        </div>
       </div>
-    </div>
-    <div class="gift-category reveal">
-      <h2>For the devotee</h2>
-      <p>Someone who already knows and loves the ritual.</p>
-      <div class="gift-grid stagger">
-        <div class="gift-card"><div class="gift-card-price">$125</div><h4>Evening Ritual Set</h4><p>A 13oz candle, diffuser, and room spray in a single scent.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$68</div><h4>Limited Edition Candle</h4><p>Seasonal scents, released twice a year.</p></div>
-        <div class="gift-card"><div class="gift-card-price">$24</div><h4>Aroma Oil Refill</h4><p>For their diffuser. Extends the life of the scent.</p></div>
+      <div class="gift-category">
+        {%- if section.settings.image_url_3 != blank -%}
+          <div class="gift-category-bg" style="background-image:url('{{ section.settings.image_url_3 }}')"></div>
+        {%- endif -%}
+        <div class="gift-category-content">
+          <h3>{{ section.settings.title_3 | default: 'For the New Home' }}</h3>
+          <p>{{ section.settings.desc_3 | default: 'Housewarming sets and signature scents to make a new space feel like home.' }}</p>
+          <a href="{{ section.settings.link_3 | default: '/collections/gift-ideas' }}" class="btn btn--ghost" style="margin-top:16px;background:rgba(250,246,240,.9);color:var(--ink)">Shop now</a>
+        </div>
       </div>
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:80px">
-      <h2>Need help choosing?</h2>
-      <p style="max-width:560px;margin:16px auto 24px">Email us at <a href="mailto:hello@auraandoak.com">hello@auraandoak.com</a></p>
-      <a href="/collections/gift-ideas" class="btn btn--primary">Shop all gifts</a>
     </div>
   </div>
 </section>
-{% schema %}{"name":"Gift guide","settings":[],"presets":[{"name":"Gift guide"}]}{% endschema %}
+
+{% schema %}
+{
+  "name": "Gift Guide",
+  "settings": [
+    { "type": "text", "id": "title_1", "label": "Category 1 title", "default": "For the Host" },
+    { "type": "textarea", "id": "desc_1", "label": "Category 1 description", "default": "Candles, diffusers, and room sprays for the friend who loves to entertain." },
+    { "type": "url", "id": "link_1", "label": "Category 1 link" },
+    { "type": "text", "id": "image_url_1", "label": "Category 1 image URL" },
+    { "type": "text", "id": "title_2", "label": "Category 2 title", "default": "For the Ritualist" },
+    { "type": "textarea", "id": "desc_2", "label": "Category 2 description", "default": "Discovery sets and care kits for the one who savors the small moments." },
+    { "type": "url", "id": "link_2", "label": "Category 2 link" },
+    { "type": "text", "id": "image_url_2", "label": "Category 2 image URL" },
+    { "type": "text", "id": "title_3", "label": "Category 3 title", "default": "For the New Home" },
+    { "type": "textarea", "id": "desc_3", "label": "Category 3 description", "default": "Housewarming sets and signature scents to make a new space feel like home." },
+    { "type": "url", "id": "link_3", "label": "Category 3 link" },
+    { "type": "text", "id": "image_url_3", "label": "Category 3 image URL" }
+  ],
+  "presets": [{ "name": "Gift Guide" }]
+}
+{% endschema %}
