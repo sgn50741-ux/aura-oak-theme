@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Our story",
+        "heading": "The quiet ritual of home.",
+        "subheading": "A story of craft, care, and the pursuit of scent."
+      }
+    },
+    "story": {
+      "type": "our-story-content"
+    }
+  },
+  "order": [
+    "hero",
+    "story"
+  ]
+}
