@@ -4,19 +4,66 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "FAQ",
-        "heading": "We've got answers."
+        "heading": "Frequently Asked Questions"
       }
     },
     "faq": {
-      "type": "faq"
-    },
-    "newsletter": {
-      "type": "newsletter"
+      "type": "faq",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about our candles, diffusers, and home fragrances."
+      },
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Candles",
+            "question": "How long do your candles burn?",
+            "answer": "<p>Our 8 oz candles burn for approximately 40-50 hours, and our 13 oz candles burn for 70-80 hours. Always trim the wick to 1/4 inch before each lighting for optimal performance.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Candles",
+            "question": "What type of wax do you use?",
+            "answer": "<p>We use 100% natural soy wax, which is clean-burning, renewable, and biodegradable. Soy wax also provides an excellent scent throw.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Shipping",
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship within 1-2 business days. Standard shipping takes 3-5 business days within the continental US. Expedited options are available at checkout.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Shipping",
+            "question": "Do you offer free shipping?",
+            "answer": "<p>Yes! We offer complimentary standard shipping on all orders over $75 within the continental US.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Returns",
+            "question": "What is your return policy?",
+            "answer": "<p>We accept returns within 30 days of delivery on unopened items in original packaging. Used candles cannot be returned, but we stand behind our quality — if you're not satisfied, please contact us.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Care",
+            "question": "How do I care for my candle?",
+            "answer": "<p>Always trim the wick to 1/4 inch before lighting. Allow the wax to melt to the edges on the first burn (about 2 hours). Never burn for more than 4 hours at a time. Keep away from drafts.</p>"
+          }
+        }
+      ]
     }
   },
-  "order": [
-    "hero",
-    "faq",
-    "newsletter"
-  ]
+  "order": ["hero", "faq"]
 }
