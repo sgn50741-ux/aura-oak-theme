@@ -1,19 +1,6 @@
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow reveal">{{ section.settings.eyebrow }}</span>
-    <h1 class="reveal delay-1">{{ section.settings.heading }}</h1>
-    {%- if section.settings.subheading != blank -%}
-      <p class="reveal delay-2">{{ section.settings.subheading }}</p>
-    {%- endif -%}
-  </div>
-</section>
-{% schema %}
-{
-  "name": "Page hero",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "text", "id": "heading", "label": "Heading" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading" }
-  ]
-}
-{% endschema %}
+<div class="page-hero"><div class="container">
+<span class="eyebrow reveal">{{ section.settings.eyebrow }}</span>
+<h1 class="reveal delay-1">{{ section.settings.heading }}</h1>
+{% if section.settings.subheading != blank %}<p class="lead reveal delay-2">{{ section.settings.subheading }}</p>{% endif %}
+</div></div>
+{% schema %}{"name":"Page hero","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"text","id":"heading","label":"Heading"},{"type":"textarea","id":"subheading","label":"Subheading"}]}{% endschema %}

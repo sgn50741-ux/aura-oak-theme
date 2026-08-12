@@ -1,30 +1,9 @@
-<section class="hero">
-  {%- if section.settings.image_url != blank -%}
-    <div class="hero-bg" style="background-image:url('{{ section.settings.image_url }}')"></div>
-  {%- elsif section.settings.image -%}
-    <div class="hero-bg" style="background-image:url('{{ section.settings.image | image_url: width: 2000 }}')"></div>
-  {%- endif -%}
-  <div class="container">
-    <div class="hero-content reveal">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h1>{{ section.settings.heading }}</h1>
-      <p class="hero-lead">{{ section.settings.subheading }}</p>
-      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn--primary btn--large btn-magnetic">{{ section.settings.button_label }}</a>
-    </div>
-  </div>
-</section>
-{% schema %}
-{
-  "name": "Hero",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hand-poured in Portland" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "The quiet <em>ritual</em> of home." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Small-batch soy candles, hand-thrown ceramic diffusers, and fragrances designed for the spaces where you slow down." },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop the collection" },
-    { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "image_picker", "id": "image", "label": "Hero image (optional)" },
-    { "type": "text", "id": "image_url", "label": "Or paste hero image URL" }
-  ],
-  "presets": [{ "name": "Hero" }]
-}
-{% endschema %}
+<section class="hero section--tight">
+<div class="hero-bg"{% if section.settings.parallax %} data-parallax="{{ section.settings.parallax_strength }}"{% endif %}>{% if section.settings.image_url != blank %}<img src="{{ section.settings.image_url }}" alt="" loading="eager">{% endif %}</div>
+<div class="container"><div class="hero-content reveal">
+{% if section.settings.eyebrow != blank %}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+<h1>{{ section.settings.heading }}</h1>
+<p class="lead">{{ section.settings.subheading }}</p>
+{% if section.settings.button_label != blank %}<a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary">{{ section.settings.button_label }}</a>{% endif %}
+</div></div></section>
+{% schema %}{"name":"Hero","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Hand-poured in Portland"},{"type":"html","id":"heading","label":"Heading","default":"The quiet <em>ritual</em> of home."},{"type":"textarea","id":"subheading","label":"Subheading","default":"Small-batch soy candles, hand-thrown ceramic diffusers, and fragrances designed for the spaces where you slow down."},{"type":"text","id":"button_label","label":"Button label","default":"Shop the collection"},{"type":"url","id":"button_link","label":"Button link"},{"type":"text","id":"image_url","label":"Hero image URL"},{"type":"checkbox","id":"parallax","label":"Enable parallax","default":true},{"type":"range","id":"parallax_strength","label":"Parallax strength","min":0.05,"max":0.4,"step":0.05,"default":0.15}],"presets":[{"name":"Hero"}]}{% endschema %}

@@ -1,0 +1,7 @@
+<div class="auth-wrap"><h1>Welcome back</h1><p class="subtitle">Sign in to your Aura &amp; Oak account.</p>
+<div class="auth-card">{% form 'customer_login' %}{{ form.errors | default_errors }}
+<div class="field"><label>Email</label><input type="email" name="customer[email]" required></div>
+<div class="field"><label>Password</label><input type="password" name="customer[password]" required></div>
+<button type="submit" class="btn btn-primary btn-full">Sign in</button>{% endform %}</div>
+<div class="auth-links"><a href="{{ routes.account_register_url }}">Create account</a> · <a href="/account/login#recover">Forgot password?</a></div></div>
+{% schema %}{"name":"Login"}{% endschema %}

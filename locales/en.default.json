@@ -1,7 +1,1 @@
-{
-  "general": {
-    "404": {
-      "title": "Page not found"
-    }
-  }
-}
+{"general":{"404":{"title":"Page not found","subtext":"The page you requested could not be found."}}}

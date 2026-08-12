@@ -1,35 +1,12 @@
-<div class="container cart-page">
-  <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);margin-bottom:40px">Your cart</h1>
-  {%- if cart.item_count > 0 -%}
-    <form action="/cart" method="post" class="cart-table">
-      {%- for item in cart.items -%}
-        <div class="cart-row">
-          <div style="aspect-ratio:1;width:80px;background:var(--line);border-radius:var(--r-sm);overflow:hidden">
-            {%- if item.image %}<img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}">{% endif -%}
-          </div>
-          <div>
-            <div style="font-family:var(--serif);font-size:18px">{{ item.product.title }}</div>
-            {%- unless item.variant.title == 'Default Title' %}<div style="font-size:13px;color:var(--ink-soft)">{{ item.variant.title }}</div>{%- endunless -%}
-          </div>
-          <div>{{ item.price | money }}</div>
-          <div>
-            <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:60px;padding:8px;border:1px solid var(--line);border-radius:var(--r-sm);text-align:center">
-          </div>
-          <div style="font-weight:500">{{ item.final_line_price | money }}</div>
-        </div>
-      {%- endfor -%}
-      <div style="text-align:right;padding-top:32px">
-        <p style="font-family:var(--serif);font-size:24px;margin-bottom:24px">Subtotal: {{ cart.total_price | money }}</p>
-        <button type="submit" name="update" class="btn btn--ghost">Update cart</button>
-        <button type="submit" name="checkout" class="btn btn--primary">Checkout</button>
-      </div>
-    </form>
-  {%- else -%}
-    <div class="text-center" style="padding:80px 0">
-      <p>Your cart is waiting.</p>
-      <a href="/collections/all" class="btn btn--primary" style="margin-top:24px">Continue shopping</a>
-    </div>
-  {%- endif -%}
-</div>
-
-{% schema %}{ "name": "Cart page" }{% endschema %}
+<div class="container cart-page"><h1>Your Cart</h1>
+{% if cart.item_count > 0 %}<form action="/cart" method="post">
+{% for item in cart.items %}<div class="cart-row">
+<a href="{{ item.url }}" class="cart-media">{% if item.image %}<img src="{{ item.image | image_url: width: 200 }}" alt="">{% endif %}</a>
+<div><div class="info"><a href="{{ item.url }}">{{ item.product.title }}</a></div>{% unless item.variant.title == 'Default Title' %}<div class="variant">{{ item.variant.title }}</div>{% endunless %}</div>
+<div>{{ item.price | money }}</div>
+<div><input type="number" name="updates[]" value="{{ item.quantity }}" min="0"></div>
+<div>{{ item.final_line_price | money }}</div>
+</div>{% endfor %}
+<div class="cart-summary"><p class="subtotal">Subtotal: {{ cart.total_price | money }}</p><button type="submit" name="update" class="btn btn-ghost">Update cart</button><button type="submit" name="checkout" class="btn btn-primary">Checkout</button></div>
+</form>{% else %}<div class="page-simple" style="margin:60px auto"><h1 style="font-size:2rem">Your cart is empty.</h1><p>Light something beautiful.</p><a href="/collections/all" class="btn btn-primary">Shop the collection</a></div>{% endif %}</div>
+{% schema %}{"name":"Cart"}{% endschema %}

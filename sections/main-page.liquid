@@ -1,5 +1,2 @@
-<article class="container section" style="max-width:760px">
-  <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:32px">{{ page.title }}</h1>
-  <div class="rte">{{ page.content }}</div>
-</article>
-{% schema %}{ "name": "Page" }{% endschema %}
+<article class="section--tight container"><div class="page-hero" style="padding-top:0;padding-bottom:24px"><h1>{{ page.title }}</h1></div><div class="prose">{{ page.content }}</div></article>
+{% schema %}{"name":"Page"}{% endschema %}

@@ -1,0 +1,15 @@
+<div class="addresses-wrap"><div class="account-header"><h1>Your addresses</h1><a href="{{ routes.account_url }}" class="btn btn-ghost">← Back</a></div>
+<div class="address-list">{% for address in customer.addresses %}<div class="address-card">
+{% if address == customer.default_address %}<h4>Default address</h4>{% else %}<h4>Address</h4>{% endif %}
+<address>{{ address | format_address }}</address>
+<div class="address-actions"><a href="/account/addresses/{{ address.id }}">Edit</a></div></div>{% endfor %}</div>
+<h2 style="font-family:var(--serif);font-size:22px;margin-bottom:16px;font-weight:400">Add a new address</h2>
+<div class="auth-card">{% form 'customer_address', customer.new_address %}
+<div class="field"><label>First name</label><input type="text" name="address[first_name]"></div>
+<div class="field"><label>Last name</label><input type="text" name="address[last_name]"></div>
+<div class="field"><label>Street</label><input type="text" name="address[address1]" required></div>
+<div class="field"><label>City</label><input type="text" name="address[city]" required></div>
+<div class="field"><label>Country</label><select name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select></div>
+<div class="field"><label>Phone</label><input type="tel" name="address[phone]"></div>
+<button type="submit" class="btn btn-primary btn-full">Add address</button>{% endform %}</div></div>
+{% schema %}{"name":"Addresses"}{% endschema %}

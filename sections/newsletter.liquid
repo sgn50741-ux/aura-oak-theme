@@ -1,14 +1,5 @@
-<section class="section newsletter">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow" style="color:rgba(250,246,240,.6)">The ritual journal</span>
-      <h2>Slow down, with us.</h2>
-      <p>New scents, studio notes, and the occasional recipe. Delivered once a month, never more.</p>
-    </div>
-    <form class="newsletter-form reveal delay-1" novalidate>
-      <input type="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
-{% schema %}{ "name": "Newsletter", "presets": [{ "name": "Newsletter" }] }{% endschema %}
+<section class="section newsletter"><div class="container">
+<div class="section-head reveal"><span class="eyebrow" style="color:rgba(250,246,240,.6)">The ritual journal</span><h2>Slow down, with us.</h2><p>New scents, studio notes, and the occasional recipe. Once a month, never more.</p></div>
+<form class="reveal delay-1" data-newsletter novalidate><div class="newsletter-form"><input type="email" name="contact[email]" placeholder="your@email.com" required><button type="submit">Subscribe</button></div></form>
+</div></section>
+{% schema %}{"name":"Newsletter","presets":[{"name":"Newsletter"}]}{% endschema %}

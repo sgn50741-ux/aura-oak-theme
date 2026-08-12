@@ -1,54 +1,23 @@
-<section class="content-block">
-  <div class="container">
-    <div class="faq-categories reveal">
-      <button class="faq-cat is-active" data-category="all">All</button>
-      <button class="faq-cat" data-category="candles">Candles</button>
-      <button class="faq-cat" data-category="diffusers">Diffusers</button>
-      <button class="faq-cat" data-category="shipping">Shipping</button>
-      <button class="faq-cat" data-category="care">Care</button>
-    </div>
-    <div class="faq-list stagger">
-      <div class="faq-item" data-category="candles">
-        <div class="faq-q">How long do your candles burn?</div>
-        <div class="faq-a">Our 8 oz candles burn for approximately 40-50 hours, and our 13 oz candles burn for 70-90 hours. Always trim the wick to 1/4 inch before each burn for optimal performance.</div>
-      </div>
-      <div class="faq-item" data-category="candles">
-        <div class="faq-q">What makes your candles different?</div>
-        <div class="faq-a">We use 100% soy wax (never paraffin), phthalate-free fragrances, and cotton wicks. Each candle is hand-poured in small batches in our Portland studio, ensuring quality and consistency.</div>
-      </div>
-      <div class="faq-item" data-category="diffusers">
-        <div class="faq-q">How long do reed diffusers last?</div>
-        <div class="faq-a">Our reed diffusers last approximately 3-4 months. Flip the reeds every 2-3 weeks to refresh the scent. Replace reeds when they become saturated or dusty.</div>
-      </div>
-      <div class="faq-item" data-category="diffusers">
-        <div class="faq-q">Are your diffusers safe for pets?</div>
-        <div class="faq-a">Our diffusers use phthalate-free fragrances, but we recommend keeping them out of reach of pets and children. Some essential oils can be sensitive for certain animals, so consult your vet if you have concerns.</div>
-      </div>
-      <div class="faq-item" data-category="shipping">
-        <div class="faq-q">How much is shipping?</div>
-        <div class="faq-a">Complimentary standard shipping on orders over $75. Orders under $75 ship for $8 flat rate within the continental US. International shipping available at checkout.</div>
-      </div>
-      <div class="faq-item" data-category="shipping">
-        <div class="faq-q">How long does shipping take?</div>
-        <div class="faq-a">Orders ship within 1-2 business days. Standard shipping takes 3-5 business days within the continental US. Express shipping (1-2 days) available at checkout.</div>
-      </div>
-      <div class="faq-item" data-category="shipping">
-        <div class="faq-q">What's your return policy?</div>
-        <div class="faq-a">We accept returns within 30 days of delivery on unopened items. Opened candles and diffusers cannot be returned due to their nature, but we stand behind our quality — contact us if you have any issues.</div>
-      </div>
-      <div class="faq-item" data-category="care">
-        <div class="faq-q">How do I care for my candle?</div>
-        <div class="faq-a">Trim the wick to 1/4 inch before each burn. Allow the wax pool to reach the edge on the first burn (about 2 hours for 8 oz) to prevent tunneling. Never burn for more than 4 hours at a time. Snuff, don't blow, to preserve the scent.</div>
-      </div>
-      <div class="faq-item" data-category="care">
-        <div class="faq-q">Can I reuse the vessel?</div>
-        <div class="faq-a">Absolutely! Once the candle is finished, remove remaining wax with hot water. Our ceramic vessels are designed to be reused as planters, pen holders, or purchase refills to continue the ritual.</div>
-      </div>
-      <div class="faq-item" data-category="care">
-        <div class="faq-q">How do I care for my diffuser?</div>
-        <div class="faq-a">Flip reeds every 2-3 weeks. Keep away from direct sunlight and heat sources. Replace reeds when they become saturated (usually after 3-4 months). Refill with our concentrated aroma oils when the liquid runs low.</div>
-      </div>
-    </div>
-  </div>
-</section>
-{% schema %}{ "name": "FAQ" }{% endschema %}
+<div id="FaqWrap" class="section--tight container">
+<div class="faq-cats reveal">
+<button type="button" class="faq-cat-btn is-active" data-cat="all">All</button>
+<button type="button" class="faq-cat-btn" data-cat="shipping">Shipping</button>
+<button type="button" class="faq-cat-btn" data-cat="products">Products</button>
+<button type="button" class="faq-cat-btn" data-cat="care">Care</button>
+<button type="button" class="faq-cat-btn" data-cat="returns">Returns</button>
+</div>
+<div class="faq-list stagger">
+<div class="faq-item" data-cat="shipping"><details><summary>How long does shipping take?</summary><div class="detail-body"><p>Orders placed before 2pm PT ship the same business day. Standard shipping takes 3–5 business days within the US. International takes 7–14 business days.</p></div></details></div>
+<div class="faq-item" data-cat="shipping"><details><summary>Do you offer free shipping?</summary><div class="detail-body"><p>Complimentary standard shipping on orders over Rs 5,000. Under that, flat-rate Rs 450.</p></div></details></div>
+<div class="faq-item" data-cat="shipping"><details><summary>Do you ship internationally?</summary><div class="detail-body"><p>We ship to most countries. Duties and taxes are calculated at checkout.</p></div></details></div>
+<div class="faq-item" data-cat="products"><details><summary>What wax do you use?</summary><div class="detail-body"><p>100% soy wax from a single American farm. Soy is renewable, burns clean, and holds fragrance beautifully.</p></div></details></div>
+<div class="faq-item" data-cat="products"><details><summary>Are your fragrances phthalate-free?</summary><div class="detail-body"><p>Yes. Every fragrance is independently tested and certified phthalate-free. We also avoid parabens, sulfates, and synthetic dyes.</p></div></details></div>
+<div class="faq-item" data-cat="products"><details><summary>How long do your candles burn?</summary><div class="detail-body"><p>8 oz candles burn ~40 hours. 13 oz candles burn ~70 hours.</p></div></details></div>
+<div class="faq-item" data-cat="care"><details><summary>How should I care for my candle?</summary><div class="detail-body"><p>Trim the wick to 1/4 inch before each lighting. Allow the wax pool to reach the edge on first burn. Never burn more than 4 hours at a time. Snuff, don't blow.</p></div></details></div>
+<div class="faq-item" data-cat="care"><details><summary>Why is my candle tunneling?</summary><div class="detail-body"><p>Tunneling happens when the first burn isn't long enough. Wrap aluminum foil around the top and burn 2–3 hours to reset the memory.</p></div></details></div>
+<div class="faq-item" data-cat="care"><details><summary>How do I care for my diffuser?</summary><div class="detail-body"><p>Flip reeds every 1–2 weeks. Keep away from direct sunlight and heat. A 200ml diffuser lasts 3–4 months.</p></div></details></div>
+<div class="faq-item" data-cat="returns"><details><summary>What is your return policy?</summary><div class="detail-body"><p>Returns within 30 days on unopened items. Burned candles can't be returned unless defective.</p></div></details></div>
+<div class="faq-item" data-cat="returns"><details><summary>What if my candle arrives damaged?</summary><div class="detail-body"><p>Email us a photo within 48 hours — we'll ship a replacement immediately.</p></div></details></div>
+<div class="faq-item" data-cat="returns"><details><summary>Do you offer exchanges?</summary><div class="detail-body"><p>Yes — email us and we'll arrange an exchange.</p></div></details></div>
+</div></div>
+{% schema %}{"name":"FAQ"}{% endschema %}

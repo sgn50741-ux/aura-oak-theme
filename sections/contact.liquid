@@ -1,35 +1,16 @@
-<section class="content-block">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="contact-block">
-          <h4>Studio</h4>
-          <p>1234 Burnside Street<br>Portland, OR 97209<br>United States</p>
-        </div>
-        <div class="contact-block">
-          <h4>Email</h4>
-          <p>hello@auraandoak.com<br>wholesale@auraandoak.com</p>
-        </div>
-        <div class="contact-block">
-          <h4>Hours</h4>
-          <p>Monday – Friday: 9am – 6pm PST<br>Saturday: 10am – 4pm PST<br>Sunday: Closed</p>
-        </div>
-        <div class="contact-block">
-          <h4>Follow us</h4>
-          <p><a href="#">Instagram</a> · <a href="#">Pinterest</a> · <a href="#">TikTok</a></p>
-        </div>
-      </div>
-      <div class="reveal delay-1">
-        <form class="contact-form" method="post" action="/contact">
-          <input type="hidden" name="form_type" value="contact">
-          <input type="text" name="contact[name]" placeholder="Your name" required>
-          <input type="email" name="contact[email]" placeholder="Your email" required>
-          <input type="text" name="contact[subject]" placeholder="Subject">
-          <textarea name="contact[body]" placeholder="Your message" required></textarea>
-          <button type="submit" class="btn btn--primary btn--full">Send message</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-{% schema %}{ "name": "Contact" }{% endschema %}
+<div class="section--tight container"><div class="contact-grid">
+<div class="contact-info reveal">
+<div class="info-card"><h4>Studio</h4><p>2847 NE Alberta Street<br>Portland, Oregon 97211</p></div>
+<div class="info-card"><h4>Hours</h4><p>Wednesday – Sunday, 11am – 6pm<br>Monday &amp; Tuesday by appointment</p></div>
+<div class="info-card"><h4>Get in touch</h4><p>hello@auraandoak.co<br>+1 (503) 555-0147</p></div>
+</div>
+<form class="contact-form reveal delay-1" method="post" action="/contact">
+<input type="hidden" name="form_type" value="contact">
+<div class="field"><label>Name</label><input type="text" name="contact[name]" required></div>
+<div class="field"><label>Email</label><input type="email" name="contact[email]" required></div>
+<div class="field"><label>Subject</label><input type="text" name="contact[subject]"></div>
+<div class="field"><label>Message</label><textarea name="contact[body]" required></textarea></div>
+<button type="submit" class="btn btn-primary btn-full">Send message</button>
+</form>
+</div></div>
+{% schema %}{"name":"Contact"}{% endschema %}

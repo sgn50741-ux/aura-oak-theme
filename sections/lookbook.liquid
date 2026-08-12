@@ -1,48 +1,7 @@
-<section class="section">
-  <div class="container">
-    <div class="lookbook-intro reveal">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
-    </div>
-    
-    <div class="lookbook-grid reveal">
-      {%- for i in (1..6) -%}
-        {%- assign img_key = 'image_url_' | append: i -%}
-        {%- assign caption_key = 'caption_' | append: i -%}
-        {%- assign img = section.settings[img_key] -%}
-        {%- assign caption = section.settings[caption_key] -%}
-        {%- if img != blank -%}
-          <div class="lookbook-item">
-            <img src="{{ img }}" alt="{{ caption | escape }}" loading="lazy">
-            {%- if caption != blank -%}
-              <div class="lookbook-caption">{{ caption }}</div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
-</section>
-
-{% schema %}
-{
-  "name": "Lookbook",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Lookbook" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading" },
-    { "type": "text", "id": "image_url_1", "label": "Image 1 URL" },
-    { "type": "text", "id": "caption_1", "label": "Caption 1" },
-    { "type": "text", "id": "image_url_2", "label": "Image 2 URL" },
-    { "type": "text", "id": "caption_2", "label": "Caption 2" },
-    { "type": "text", "id": "image_url_3", "label": "Image 3 URL" },
-    { "type": "text", "id": "caption_3", "label": "Caption 3" },
-    { "type": "text", "id": "image_url_4", "label": "Image 4 URL" },
-    { "type": "text", "id": "caption_4", "label": "Caption 4" },
-    { "type": "text", "id": "image_url_5", "label": "Image 5 URL" },
-    { "type": "text", "id": "caption_5", "label": "Caption 5" },
-    { "type": "text", "id": "image_url_6", "label": "Image 6 URL" },
-    { "type": "text", "id": "caption_6", "label": "Caption 6" }
-  ],
-  "presets": [{ "name": "Lookbook" }]
-}
-{% endschema %}
+<section class="section"><div class="container">
+<div class="section-head reveal"><span class="eyebrow">Lookbook</span><h2>In the spaces where we slow down.</h2></div>
+<div class="lookbook-grid stagger">{% for block in section.blocks %}<div class="lb-item {{ block.settings.size }}" {{ block.shopify_attributes }}>
+{% if block.settings.image_url != blank %}<img src="{{ block.settings.image_url }}" alt="" loading="lazy">{% endif %}
+{% if block.settings.caption != blank %}<div class="lb-cap">{{ block.settings.caption }}</div>{% endif %}</div>{% endfor %}</div>
+</div></section>
+{% schema %}{"name":"Lookbook","blocks":[{"type":"image","name":"Image","settings":[{"type":"text","id":"image_url","label":"Image URL"},{"type":"text","id":"caption","label":"Caption"},{"type":"select","id":"size","label":"Size","options":[{"value":"","label":"Standard"},{"value":"tall","label":"Tall"},{"value":"wide","label":"Wide"}]}]}],"presets":[{"name":"Lookbook"}]}{% endschema %}

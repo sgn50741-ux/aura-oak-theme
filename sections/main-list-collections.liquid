@@ -1,0 +1,5 @@
+<div class="container section"><div class="page-hero" style="padding-top:0;padding-bottom:40px"><h1>Collections</h1><p>Every ritual, in one place.</p></div>
+<div class="collections-grid stagger">{% for collection in collections %}<a href="{{ collection.url }}" class="tile">
+{% if collection.image %}<div class="tile-bg" style="background-image:url('{{ collection.image | image_url: width: 800 }}')"></div>{% endif %}
+<div class="tile-body"><span class="eyebrow">{{ collection.products_count }} products</span><h3>{{ collection.title }}</h3><span class="tile-arrow">Explore <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>{% endfor %}</div></div>
+{% schema %}{"name":"Collections list"}{% endschema %}

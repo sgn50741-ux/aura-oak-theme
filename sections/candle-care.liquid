@@ -1,55 +1,17 @@
-<section class="section">
-  <div class="container">
-    <div class="care-intro reveal">
-      <h2>{{ section.settings.heading }}</h2>
-      <p class="lead">{{ section.settings.intro }}</p>
-    </div>
-    
-    <div class="care-steps reveal">
-      {%- for i in (1..3) -%}
-        {%- assign title_key = 'step_title_' | append: i -%}
-        {%- assign text_key = 'step_text_' | append: i -%}
-        {%- assign title = section.settings[title_key] -%}
-        {%- assign text = section.settings[text_key] -%}
-        {%- if title != blank -%}
-          <div class="care-step">
-            <div class="step-number">{{ i }}</div>
-            <h3>{{ title }}</h3>
-            <p>{{ text }}</p>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-    
-    <div class="care-safety reveal">
-      <h3>{{ section.settings.safety_heading }}</h3>
-      <div class="rte">{{ section.settings.safety_text }}</div>
-    </div>
-    
-    <div class="care-diffuser reveal">
-      <h3>{{ section.settings.diffuser_heading }}</h3>
-      <div class="rte">{{ section.settings.diffuser_text }}</div>
-    </div>
-  </div>
-</section>
-
-{% schema %}
-{
-  "name": "Candle Care",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Candle Care Guide" },
-    { "type": "textarea", "id": "intro", "label": "Intro text" },
-    { "type": "text", "id": "step_title_1", "label": "Step 1 title", "default": "Trim the wick" },
-    { "type": "textarea", "id": "step_text_1", "label": "Step 1 text", "default": "Always trim your wick to 1/4 inch before lighting. This prevents soot and ensures an even burn." },
-    { "type": "text", "id": "step_title_2", "label": "Step 2 title", "default": "First burn matters" },
-    { "type": "textarea", "id": "step_text_2", "label": "Step 2 text", "default": "Allow the wax to melt to the edges on the first burn (about 2 hours). This prevents tunneling." },
-    { "type": "text", "id": "step_title_3", "label": "Step 3 title", "default": "Snuff, don't blow" },
-    { "type": "textarea", "id": "step_text_3", "label": "Step 3 text", "default": "Use a candle snuffer or dip the wick into the wax. This preserves the scent and prevents smoke." },
-    { "type": "text", "id": "safety_heading", "label": "Safety heading", "default": "Safety Tips" },
-    { "type": "richtext", "id": "safety_text", "label": "Safety text" },
-    { "type": "text", "id": "diffuser_heading", "label": "Diffuser heading", "default": "Diffuser Care" },
-    { "type": "richtext", "id": "diffuser_text", "label": "Diffuser text" }
-  ],
-  "presets": [{ "name": "Candle Care" }]
-}
-{% endschema %}
+<div class="section--tight container">
+<div class="prose reveal" style="text-align:center;margin-bottom:20px"><p>Small rituals that make a big difference.</p></div>
+<div class="steps stagger">
+<div class="step"><div class="step-num">01</div><div><h4>Trim before every burn</h4><p>Trim the cotton wick to 1/4 inch before each lighting. This prevents soot, extends burn time, and keeps the flame steady.</p></div></div>
+<div class="step"><div class="step-num">02</div><div><h4>Let it pool edge-to-edge</h4><p>On first burn, allow the wax pool to reach the vessel edge — 2 hours for 8 oz, 3 hours for 13 oz.</p></div></div>
+<div class="step"><div class="step-num">03</div><div><h4>Never burn past 4 hours</h4><p>Longer burns overheat the wax. Extinguish, cool 2 hours, trim wick, then light again.</p></div></div>
+<div class="step"><div class="step-num">04</div><div><h4>Snuff, don't blow</h4><p>Blowing releases smoke. Use a snuffer or dip the wick into the wax pool.</p></div></div>
+<div class="step"><div class="step-num">05</div><div><h4>Store in the dark</h4><p>Keep candles out of direct sunlight when not in use. UV light degrades fragrance.</p></div></div>
+</div>
+<div class="section-head reveal" style="margin-top:80px"><h2>Caring for your diffuser</h2></div>
+<div class="steps stagger">
+<div class="step"><div class="step-num">01</div><div><h4>Flip the reeds weekly</h4><p>Flip every 7–10 days for consistent fragrance. More often in warmer rooms.</p></div></div>
+<div class="step"><div class="step-num">02</div><div><h4>Keep away from heat</h4><p>Heat accelerates evaporation. Keep away from radiators, direct sunlight, AC vents.</p></div></div>
+<div class="step"><div class="step-num">03</div><div><h4>Replace reeds when scent fades</h4><p>Reeds saturate after 2–3 months. Swap before refilling.</p></div></div>
+</div>
+</div>
+{% schema %}{"name":"Candle care"}{% endschema %}

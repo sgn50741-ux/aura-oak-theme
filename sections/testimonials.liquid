@@ -1,0 +1,5 @@
+<section class="section"><div class="container">
+<div class="section-head reveal"><span class="eyebrow">From the ritual journal</span><h2>Words from our customers.</h2></div>
+<div class="t-grid stagger">{% for block in section.blocks %}<div class="t-card" {{ block.shopify_attributes }}><p class="t-quote">"{{ block.settings.quote }}"</p><div class="t-author">{{ block.settings.author }}</div></div>{% endfor %}</div>
+</div></section>
+{% schema %}{"name":"Testimonials","blocks":[{"type":"testimonial","name":"Testimonial","settings":[{"type":"textarea","id":"quote","label":"Quote"},{"type":"text","id":"author","label":"Author"}]}],"presets":[{"name":"Testimonials","blocks":[{"type":"testimonial","settings":{"quote":"Lighting the Santal Noir at 8pm has become my cue that the workday is over.","author":"Maya R. — Brooklyn"}},{"type":"testimonial","settings":{"quote":"The Terra diffuser is the most beautiful object in my apartment.","author":"James T. — Austin"}},{"type":"testimonial","settings":{"quote":"I gifted the Discovery Set to my mother. She called me in tears.","author":"Priya K. — London"}}]}]}{% endschema %}

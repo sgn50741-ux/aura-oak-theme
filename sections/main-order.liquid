@@ -1,0 +1,8 @@
+<div class="account-wrap"><div class="account-header"><h1>Order {{ order.name }}</h1><a href="{{ routes.account_url }}" class="btn btn-ghost">← Back</a></div>
+<p style="color:var(--ink-soft);margin-bottom:24px">Placed on {{ order.created_at | date: '%B %d, %Y at %I:%M %p' }}</p>
+<table class="account-table"><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th></tr>
+{% for line in order.line_items %}<tr><td>{{ line.title }}{% if line.variant.title != 'Default Title' %}<br><small>{{ line.variant.title }}</small>{% endif %}</td><td>{{ line.price | money }}</td><td>{{ line.quantity }}</td><td>{{ line.line_price | money }}</td></tr>{% endfor %}</table>
+<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line-soft);text-align:right">
+<p>Subtotal: {{ order.subtotal_price | money }}</p><p>Shipping: {{ order.shipping_price | money }}</p><p>Tax: {{ order.tax_price | money }}</p>
+<p style="font-family:var(--serif);font-size:22px;margin-top:8px"><strong>Total: {{ order.total_price | money }}</strong></p></div></div>
+{% schema %}{"name":"Order"}{% endschema %}

@@ -1,52 +1,57 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page_title }}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
-{{ content_for_header }}
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-{{ 'aura.css' | asset_url | stylesheet_tag }}
-</head>
-<body class="template-{{ template.name }}">
-<div class="announce">Complimentary shipping on orders over $75 &#10022; Hand-poured in small batches &#10022; 100% soy wax</div>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo">Aura <em>&amp;</em> Oak</a>
-    <nav class="nav">
-      <div class="nav-item"><a href="/collections/all" class="nav-link">Shop</a>
-        <div class="mega"><div class="mega-inner">
-          <div class="mega-col"><h5 class="mega-title">Collections</h5><a href="/collections/all">All Products</a><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a><a href="/collections/home-fragrance">Home Fragrance</a></div>
-          <div class="mega-col"><h5 class="mega-title">By Scent</h5><a href="/collections/all/woody">Woody</a><a href="/collections/all/warm">Warm</a><a href="/collections/all/fresh">Fresh</a></div>
-        </div></div>
-      </div>
-      <div class="nav-item"><a href="/pages/our-story" class="nav-link">Studio</a>
-        <div class="mega mega-sm"><div class="mega-inner">
-          <div class="mega-col"><a href="/pages/our-story">Our Story</a><a href="/pages/sustainability">Sustainability</a></div>
-          <div class="mega-col"><a href="/pages/journal">Journal</a><a href="/pages/lookbook">Lookbook</a></div>
-        </div></div>
-      </div>
-      <div class="nav-item"><a href="/pages/faq" class="nav-link">Help</a>
-        <div class="mega mega-sm"><div class="mega-inner">
-          <div class="mega-col"><a href="/pages/shipping">Shipping</a><a href="/pages/faq">FAQ</a><a href="/pages/contact">Contact</a></div>
-        </div></div>
-      </div>
-    </nav>
-    <div class="header-icons">
-      <a href="/search" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
-      <a href="/cart" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.5 13h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count">{{ cart.item_count }}</span></a>
-    </div>
-  </div>
-</header>
-<main>{{ content_for_layout }}</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><a href="/" class="logo">Aura <em>&amp;</em> Oak</a><p>Hand-poured in Portland.</p></div>
-    <div><h5>Shop</h5><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a></div>
-    <div><h5>Studio</h5><a href="/pages/our-story">Our Story</a><a href="/pages/journal">Journal</a></div>
-    <div><h5>Help</h5><a href="/pages/faq">FAQ</a><a href="/pages/contact">Contact</a></div>
-  </div>
-</footer>
-{{ 'aura.js' | asset_url | script_tag }}
-</body>
-</html>
+<html lang="en" class="js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FAF6F0">
+<title>{{ page_title }}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
+{% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+<link rel="canonical" href="{{ canonical_url }}">{{ content_for_header }}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+{{ 'aura.css' | asset_url | stylesheet_tag }}</head>
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.suffix }}{% endif %}">
+<a class="skip-link" href="#MainContent">Skip to content</a>
+<div class="announce">Complimentary shipping on orders over Rs 5,000 ✦ Hand-poured in small batches ✦ 100% soy wax</div>
+<header class="site-header"><div class="container header-inner">
+<button class="icon-btn menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+<a href="{{ routes.root_url }}" class="logo">Aura <em>&amp;</em> Oak</a>
+<nav class="nav" aria-label="Primary">
+<div class="nav-item"><a href="/collections/all" class="nav-link">Shop</a><div class="mega"><div class="mega-inner">
+<div class="mega-col"><h5 class="mega-title">Collections</h5><a href="/collections/all">All Products</a><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a><a href="/collections/home-fragrance">Room Sprays &amp; Incense</a><a href="/collections/gift-ideas">Gift Sets</a><a href="/collections/accessories">Accessories</a></div>
+<div class="mega-col"><h5 class="mega-title">By Scent</h5><a href="/collections/all/woody">Woody &amp; Smoky</a><a href="/collections/all/warm">Warm &amp; Spicy</a><a href="/collections/all/fresh">Fresh &amp; Green</a><a href="/collections/all/floral">Floral &amp; Soft</a><a href="/collections/all/fruity">Fruity &amp; Bright</a></div>
+<div class="mega-col"><h5 class="mega-title">Featured</h5><a href="/pages/gift-guide">Gift Guide</a><a href="/pages/lookbook">Lookbook</a><a href="/pages/candle-care">Candle Care</a><a href="/collections/all?sort_by=created-descending">New Arrivals</a></div>
+</div></div></div>
+<div class="nav-item"><a href="/pages/our-story" class="nav-link">Studio</a><div class="mega mega-sm"><div class="mega-inner">
+<div class="mega-col"><h5 class="mega-title">About</h5><a href="/pages/our-story">Our Story</a><a href="/pages/sustainability">Sustainability</a><a href="/pages/wholesale">Wholesale</a></div>
+<div class="mega-col"><h5 class="mega-title">Explore</h5><a href="/pages/journal">The Ritual Journal</a><a href="/pages/lookbook">Lookbook</a><a href="/pages/gift-guide">Gift Guide</a></div>
+</div></div></div>
+<div class="nav-item"><a href="/pages/faq" class="nav-link">Help</a><div class="mega mega-sm"><div class="mega-inner">
+<div class="mega-col"><h5 class="mega-title">Support</h5><a href="/pages/shipping">Shipping &amp; Returns</a><a href="/pages/faq">FAQ</a><a href="/pages/candle-care">Candle Care</a><a href="/pages/contact">Contact</a></div>
+<div class="mega-col"><h5 class="mega-title">Account</h5><a href="/account">Sign in</a><a href="/account/register">Create account</a><a href="/search">Search</a></div>
+</div></div></div>
+<a href="/pages/journal" class="nav-link">Journal</a><a href="/pages/our-story" class="nav-link">Our Story</a>
+</nav>
+<div class="header-icons">
+<a href="/search" class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
+<a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+<a href="{{ routes.cart_url }}" class="icon-btn" data-cart-open aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.5 13h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count{% if cart.item_count == 0 %} is-hidden{% endif %}">{{ cart.item_count }}</span></a>
+</div></div></header>
+<div class="mobile-menu" aria-hidden="true"><div class="mm-head"><span class="logo">Aura <em>&amp;</em> Oak</span><button class="icon-btn mm-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<nav class="mm-nav">
+<div class="mm-acc"><button type="button">Shop<span class="mm-caret"></span></button><div class="mm-panel"><a href="/collections/all">All Products</a><a href="/collections/candles">Candles</a><a href="/collections/diffusers">Diffusers</a><a href="/collections/home-fragrance">Room Sprays</a><a href="/collections/gift-ideas">Gift Sets</a><a href="/collections/accessories">Accessories</a></div></div>
+<div class="mm-acc"><button type="button">Studio<span class="mm-caret"></span></button><div class="mm-panel"><a href="/pages/our-story">Our Story</a><a href="/pages/sustainability">Sustainability</a><a href="/pages/wholesale">Wholesale</a><a href="/pages/journal">Journal</a><a href="/pages/lookbook">Lookbook</a></div></div>
+<div class="mm-acc"><button type="button">Help<span class="mm-caret"></span></button><div class="mm-panel"><a href="/pages/shipping">Shipping &amp; Returns</a><a href="/pages/faq">FAQ</a><a href="/pages/candle-care">Candle Care</a><a href="/pages/contact">Contact</a></div></div>
+<a href="/pages/journal" class="mm-link">Journal</a><a href="/pages/our-story" class="mm-link">Our Story</a>
+</nav><div class="mm-foot"><a href="/account">Account</a><a href="/search">Search</a></div></div>
+<main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div class="footer-brand"><a href="{{ routes.root_url }}" class="logo">Aura <em>&amp;</em> Oak</a><p>Hand-poured soy candles, ceramic diffusers, and artisan home fragrances. Made in small batches in Portland, Oregon.</p></div>
+<div class="footer-col"><h5>Shop</h5><ul><li><a href="/collections/all">All Products</a></li><li><a href="/collections/candles">Candles</a></li><li><a href="/collections/diffusers">Diffusers</a></li><li><a href="/collections/home-fragrance">Room Sprays &amp; Incense</a></li><li><a href="/collections/gift-ideas">Gift Sets</a></li><li><a href="/collections/accessories">Accessories</a></li></ul></div>
+<div class="footer-col"><h5>Studio</h5><ul><li><a href="/pages/our-story">Our Story</a></li><li><a href="/pages/journal">The Ritual Journal</a></li><li><a href="/pages/lookbook">Lookbook</a></li><li><a href="/pages/sustainability">Sustainability</a></li><li><a href="/pages/wholesale">Wholesale</a></li></ul></div>
+<div class="footer-col"><h5>Help</h5><ul><li><a href="/pages/shipping">Shipping &amp; Returns</a></li><li><a href="/pages/faq">FAQ</a></li><li><a href="/pages/candle-care">Candle Care</a></li><li><a href="/pages/contact">Contact</a></li><li><a href="/account">Account</a></li></ul></div>
+</div><div class="footer-bottom"><span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} — Hand-poured in Portland</span><span>{{ powered_by_link }}</span></div></div></footer>
+<aside class="cart-drawer" id="CartDrawer" aria-hidden="true"><div class="cart-backdrop" data-cart-close></div><div class="cart-panel" role="dialog" aria-modal="true" aria-label="Cart">
+<div class="cart-head"><h3>Your Cart <span class="cart-head-count"></span></h3><button class="icon-btn" data-cart-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="cart-progress"><span class="cart-progress-text"></span><div class="cart-progress-bar"><div class="cart-progress-fill"></div></div></div>
+<div class="cart-items" id="CartItems"></div>
+<div class="cart-foot"><div class="cart-subtotal"><span>Subtotal</span><strong id="CartSubtotal">$0.00</strong></div><p class="cart-note">Shipping &amp; taxes calculated at checkout.</p><a href="/checkout" class="btn btn-primary btn-full">Checkout</a><a href="/cart" class="btn btn-ghost btn-full">View cart</a></div>
+</div></aside>
+<script>window.AURA={moneyFormat:{{ shop.money_format | json }},freeShipThreshold:5000};</script>
+{{ 'aura.js' | asset_url | script_tag }}</body></html>

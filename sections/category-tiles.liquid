@@ -1,53 +1,7 @@
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-    </div>
-    <div class="tiles">
-      {%- for i in (1..3) -%}
-        {%- assign handle_key = 'collection_' | append: i -%}
-        {%- assign img_key = 'image_url_' | append: i -%}
-        {%- assign label_key = 'label_' | append: i -%}
-        {%- assign handle = section.settings[handle_key] -%}
-        {%- assign img = section.settings[img_key] -%}
-        {%- assign label = section.settings[label_key] -%}
-        {%- assign c = collections[handle] -%}
-        {%- if handle != blank -%}
-          <a href="{% if c %}{{ c.url }}{% else %}/collections/all/{{ handle | capitalize }}{% endif %}" class="tile reveal delay-{{ i }}">
-            {%- if img != blank -%}
-              <div class="tile-bg" style="background-image:url('{{ img }}')"></div>
-            {%- endif -%}
-            <div class="tile-body">
-              <span class="eyebrow">Collection</span>
-              <h3>{{ label | default: handle | capitalize }}</h3>
-              <span class="tile-arrow">
-                Explore
-                <svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
-            </div>
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
-</section>
-{% schema %}
-{
-  "name": "Category tiles",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop by collection" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Three rituals, one philosophy." },
-    { "type": "text", "id": "collection_1", "label": "Collection 1 handle", "default": "candles" },
-    { "type": "text", "id": "label_1", "label": "Collection 1 label", "default": "Candles" },
-    { "type": "text", "id": "image_url_1", "label": "Collection 1 image URL" },
-    { "type": "text", "id": "collection_2", "label": "Collection 2 handle", "default": "diffusers" },
-    { "type": "text", "id": "label_2", "label": "Collection 2 label", "default": "Diffusers" },
-    { "type": "text", "id": "image_url_2", "label": "Collection 2 image URL" },
-    { "type": "text", "id": "collection_3", "label": "Collection 3 handle", "default": "home-fragrance" },
-    { "type": "text", "id": "label_3", "label": "Collection 3 label", "default": "Home Fragrance" },
-    { "type": "text", "id": "image_url_3", "label": "Collection 3 image URL" }
-  ],
-  "presets": [{ "name": "Category tiles" }]
-}
-{% endschema %}
+<section class="section"><div class="container">
+<div class="section-head reveal"><span class="eyebrow">Shop by collection</span><h2>Three rituals, one philosophy.</h2></div>
+<div class="tiles stagger">{% for block in section.blocks %}<a href="/collections/{{ block.settings.collection_handle }}" class="tile" {{ block.shopify_attributes }}>
+{% if block.settings.image_url != blank %}<div class="tile-bg" style="background-image:url('{{ block.settings.image_url }}')"></div>{% endif %}
+<div class="tile-body"><span class="eyebrow">Collection</span><h3>{{ block.settings.label }}</h3><span class="tile-arrow">Explore <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>{% endfor %}</div>
+</div></section>
+{% schema %}{"name":"Category tiles","blocks":[{"type":"tile","name":"Tile","settings":[{"type":"text","id":"collection_handle","label":"Collection handle"},{"type":"text","id":"label","label":"Label"},{"type":"text","id":"image_url","label":"Image URL"}]}],"presets":[{"name":"Category tiles","blocks":[{"type":"tile","settings":{"collection_handle":"candles","label":"Candles"}},{"type":"tile","settings":{"collection_handle":"diffusers","label":"Diffusers"}},{"type":"tile","settings":{"collection_handle":"home-fragrance","label":"Room Sprays & Incense"}}]}]}{% endschema %}

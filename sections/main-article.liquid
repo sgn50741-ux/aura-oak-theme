@@ -1,0 +1,8 @@
+<article class="section--tight container"><div class="article-header reveal"><div class="article-meta">{{ article.published_at | date: '%B %d, %Y' }} · {{ article.author }}</div><h1>{{ article.title }}</h1></div>
+{% if article.image %}<div class="reveal delay-1" style="max-width:960px;margin:0 auto 40px"><img src="{{ article.image | image_url: width: 1600 }}" alt="" style="border-radius:10px"></div>{% endif %}
+<div class="article-content prose reveal delay-2">{{ article.content }}</div>
+<div style="max-width:760px;margin:60px auto 0;display:flex;justify-content:space-between;font-size:14px">
+{% if blog.previous_article %}<a href="{{ blog.previous_article.url }}">← {{ blog.previous_article.title }}</a>{% else %}<span></span>{% endif %}
+{% if blog.next_article %}<a href="{{ blog.next_article.url }}">{{ blog.next_article.title }} →</a>{% else %}<span></span>{% endif %}
+</div></article>
+{% schema %}{"name":"Article"}{% endschema %}

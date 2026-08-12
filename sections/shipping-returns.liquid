@@ -1,65 +1,18 @@
-<section class="section">
-  <div class="container">
-    <div class="shipping-intro reveal">
-      <h2>{{ section.settings.heading }}</h2>
-    </div>
-    
-    <div class="shipping-grid">
-      <div class="shipping-info reveal">
-        <h3>{{ section.settings.shipping_heading }}</h3>
-        <div class="rte">{{ section.settings.shipping_text }}</div>
-        
-        <table class="shipping-table">
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>Delivery Time</th>
-              <th>Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'shipping_option' -%}
-                <tr>
-                  <td>{{ block.settings.method }}</td>
-                  <td>{{ block.settings.time }}</td>
-                  <td>{{ block.settings.cost }}</td>
-                </tr>
-              {%- endif -%}
-            {%- endfor -%}
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="returns-info reveal delay-1">
-        <h3>{{ section.settings.returns_heading }}</h3>
-        <div class="rte">{{ section.settings.returns_text }}</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% schema %}
-{
-  "name": "Shipping & Returns",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Shipping & Returns" },
-    { "type": "text", "id": "shipping_heading", "label": "Shipping heading", "default": "Shipping Information" },
-    { "type": "richtext", "id": "shipping_text", "label": "Shipping text" },
-    { "type": "text", "id": "returns_heading", "label": "Returns heading", "default": "Returns & Exchanges" },
-    { "type": "richtext", "id": "returns_text", "label": "Returns text" }
-  ],
-  "blocks": [
-    {
-      "type": "shipping_option",
-      "name": "Shipping Option",
-      "settings": [
-        { "type": "text", "id": "method", "label": "Method" },
-        { "type": "text", "id": "time", "label": "Delivery Time" },
-        { "type": "text", "id": "cost", "label": "Cost" }
-      ]
-    }
-  ],
-  "presets": [{ "name": "Shipping & Returns" }]
-}
-{% endschema %}
+<div class="section--tight container">
+<div class="section-head reveal"><h2>Shipping</h2></div>
+<table class="ship-table reveal">
+<tr><th>Method</th><th>Time</th><th>Cost</th></tr>
+<tr><td>Standard (Pakistan)</td><td>3–5 business days</td><td>Rs 450 · Free over Rs 5,000</td></tr>
+<tr><td>Express (Pakistan)</td><td>1–2 business days</td><td>Rs 1,200</td></tr>
+<tr><td>International Standard</td><td>7–14 business days</td><td>Calculated at checkout</td></tr>
+<tr><td>International Express</td><td>3–5 business days</td><td>Calculated at checkout</td></tr>
+</table>
+<p class="ship-note reveal">Orders placed before 2pm PT ship the same business day. All orders ship from our Portland studio.</p>
+<div class="section-head reveal" style="margin-top:60px"><h2>Returns</h2></div>
+<div class="prose reveal">
+<p>We accept returns within <strong>30 days of delivery</strong> on unopened, unused items in original packaging.</p>
+<p>Candles that have been burned cannot be returned unless defective. Email us a photo and we'll make it right.</p>
+<p>To start a return, email <a href="mailto:hello@auraandoak.co">hello@auraandoak.co</a> with your order number.</p>
+</div>
+</div>
+{% schema %}{"name":"Shipping & returns"}{% endschema %}

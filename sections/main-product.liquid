@@ -1,119 +1,25 @@
-{%- assign product_json = product | json -%}
 <div class="container pdp">
-  <div class="pdp-gallery reveal">
-    <div class="pdp-main-image">
-      {%- if product.featured_image -%}
-        <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | escape }}" id="PdpMainImg">
-      {%- else -%}
-        <div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-family:var(--serif);font-style:italic;font-size:96px;color:var(--oak);opacity:.25">A&O</div>
-      {%- endif -%}
-    </div>
-    {%- if product.images.size > 1 -%}
-      <div class="pdp-thumbs">
-        {%- for image in product.images limit: 4 -%}
-          <button type="button" class="pdp-thumb {% if forloop.first %}is-active{% endif %}" data-src="{{ image | image_url: width: 1200 }}" data-alt="{{ image.alt | escape }}">
-            <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | escape }}" loading="lazy">
-          </button>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  </div>
-
-  <form class="pdp-info reveal delay-1" id="ProductForm" data-product='{{ product_json | escape }}'>
-    <span class="pdp-vendor">{{ product.vendor }}</span>
-    <h1>{{ product.title }}</h1>
-
-    {%- assign rating = product.metafields.aura.rating.value -%}
-    {%- if rating -%}
-      <div class="pdp-rating">
-        {% render 'stars', rating: rating.average %}
-        <span>{{ rating.average }} · {{ rating.count }} reviews</span>
-      </div>
-    {%- endif -%}
-
-    <div class="pdp-price">
-      <span class="pdp-price-current">{{ product.selected_or_first_available_variant.price | money }}</span>
-      {%- if product.compare_at_price > product.price -%}
-        <span class="compare">{{ product.compare_at_price | money }}</span>
-      {%- endif -%}
-    </div>
-
-    {%- for option in product.options_with_values -%}
-      <div class="pdp-option-group">
-        <label class="pdp-option-label">{{ option.name }}</label>
-        <div class="pdp-option-values">
-          {%- for value in option.values -%}
-            <button type="button" class="pdp-option-pill" data-option="{{ option.name | escape }}" data-value="{{ value | escape }}"{% if forloop.first %} class="pdp-option-pill is-selected"{% endif %}>{{ value }}</button>
-          {%- endfor -%}
-        </div>
-      </div>
-    {%- endfor -%}
-
-    <div class="pdp-quantity">
-      <span class="pdp-option-label" style="margin:0">Quantity</span>
-      <div class="qty-stepper">
-        <button type="button" onclick="this.nextElementSibling.stepDown()">−</button>
-        <input type="number" class="pdp-qty-input" value="1" min="1">
-        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-      </div>
-    </div>
-
-    <div class="pdp-actions">
-      <button type="submit" class="btn btn--primary btn--large btn--full pdp-add">Add to cart</button>
-    </div>
-
-    <div class="pdp-description">{{ product.description }}</div>
-
-    <div class="pdp-accordions">
-      <details>
-        <summary>Details & materials</summary>
-        <div class="detail-body">
-          <p>{{ product.description }}</p>
-        </div>
-      </details>
-      <details>
-        <summary>Shipping & returns</summary>
-        <div class="detail-body">
-          <p>Complimentary standard shipping on orders over $75. Orders ship within 1–2 business days from our Portland studio. Returns accepted within 30 days of delivery on unopened items.</p>
-        </div>
-      </details>
-      <details>
-        <summary>The ritual</summary>
-        <div class="detail-body">
-          <p>Trim the wick to 1/4 inch before each lighting. Allow the wax pool to reach the edge on the first burn (about 2 hours for the 9 oz size) to prevent tunneling. Snuff, don't blow, to preserve the scent and the vessel.</p>
-        </div>
-      </details>
-    </div>
-  </form>
+<div class="pdp-gallery reveal">
+<div class="pdp-main-image">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" id="PdpMainImg">{% else %}<div class="pcard-ph">A&amp;O</div>{% endif %}</div>
+{% if product.images.size > 1 %}<div class="pdp-thumbs">{% for image in product.images limit: 4 %}<button type="button" class="pdp-thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ image | image_url: width: 1200 }}"><img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | escape }}" loading="lazy"></button>{% endfor %}</div>{% endif %}
 </div>
-
-{%- assign reviews = product.metafields.aura.reviews.value -%}
-{%- if rating and reviews -%}
-  <div class="container reviews">
-    <div class="reviews-summary">
-      <div class="reviews-big-num">{{ rating.average }}</div>
-      <div class="reviews-meta">
-        <span class="stars">{% render 'stars', rating: rating.average %}</span>
-        <span>Based on {{ rating.count }} reviews</span>
-      </div>
-    </div>
-    <div class="review-list">
-      {%- for review in reviews -%}
-        <article class="review reveal">
-          <div class="review-head">
-            <span>
-              <span class="review-name">{{ review.name }}</span>
-              {%- if review.verified %}<span class="review-verified">· Verified</span>{%- endif -%}
-            </span>
-            <span>{{ review.date | date: '%b %Y' }}</span>
-          </div>
-          {% render 'stars', rating: review.rating %}
-          <h4 class="review-title">{{ review.title }}</h4>
-          <p class="review-body">{{ review.body }}</p>
-        </article>
-      {%- endfor -%}
-    </div>
-  </div>
-{%- endif -%}
-
-{% schema %}{ "name": "Product page" }{% endschema %}
+<form class="pdp-info reveal delay-1" id="ProductForm">
+<script type="application/json" id="ProductJSON">{{ product | json }}</script>
+<span class="pdp-vendor">{{ product.vendor }}</span>
+<h1>{{ product.title }}</h1>
+{% assign rating = product.metafields.aura.rating.value %}{% if rating and rating.average %}<div class="pdp-rating">{% render 'stars', rating: rating.average %} <span>{{ rating.average }} · {{ rating.count }} reviews</span></div>{% endif %}
+<div class="pdp-price"><span id="PdpPrice">{{ product.selected_or_first_available_variant.price | money }}</span></div>
+<select id="VariantSelect" name="id" style="display:none">{% for v in product.variants %}<option value="{{ v.id }}"{% if v == product.selected_or_first_available_variant %} selected{% endif %}>{{ v.title }}</option>{% endfor %}</select>
+{% for option in product.options_with_values %}<div class="pdp-option-group"><label class="pdp-option-label">{{ option.name }}</label><div class="pdp-option-values">{% for value in option.values %}<button type="button" class="pdp-option-pill{% if forloop.first %} is-selected{% endif %}" data-option="{{ option.name | escape }}" data-value="{{ value | escape }}">{{ value }}</button>{% endfor %}</div></div>{% endfor %}
+<div class="pdp-qty-row"><span class="pdp-option-label" style="margin:0">Quantity</span><div class="qty-stepper"><button type="button" id="QtyMinus">&minus;</button><input type="number" id="QtyInput" value="1" min="1"><button type="button" id="QtyPlus">+</button></div></div>
+<div class="pdp-actions"><button type="submit" id="PdpAdd" class="btn btn-primary btn-full">Add to cart</button></div>
+<div class="pdp-description">{{ product.description }}</div>
+{% assign specs = product.metafields.aura.specs.value %}{% if specs %}<details><summary>Details &amp; materials</summary><div class="detail-body"><table class="specs-table">{% for spec in specs %}<tr><td>{{ spec.label }}</td><td>{{ spec.value }}</td></tr>{% endfor %}</table></div></details>{% endif %}
+<details><summary>Shipping &amp; returns</summary><div class="detail-body"><p>Complimentary shipping on orders over Rs 5,000. Orders ship within 1–2 business days from our Portland studio. Returns accepted within 30 days of delivery on unopened items.</p></div></details>
+<details><summary>The ritual</summary><div class="detail-body"><p>Trim the wick to 1/4 inch before each lighting. Allow the wax pool to reach the edge on the first burn (2 hours for 8 oz, 3 hours for 13 oz). Never burn longer than 4 hours. Snuff, don't blow.</p></div></details>
+</form></div>
+{% assign reviews = product.metafields.aura.reviews.value %}{% if rating and reviews %}<div class="container reviews">
+<div class="reviews-summary"><div class="reviews-big">{{ rating.average }}</div><div class="reviews-meta"><span class="stars">{% render 'stars', rating: rating.average %}</span><div>Based on {{ rating.count }} reviews</div></div></div>
+<div class="review-list stagger">{% for review in reviews %}<article class="review"><div class="review-head"><span><span class="review-name">{{ review.name }}</span>{% if review.verified %}<span class="review-verified">· Verified</span>{% endif %}</span><span>{{ review.date }}</span></div>{% render 'stars', rating: review.rating %}<h4 class="review-title">{{ review.title }}</h4><p class="review-body">{{ review.body }}</p></article>{% endfor %}</div>
+</div>{% endif %}
+{% schema %}{"name":"Product"}{% endschema %}

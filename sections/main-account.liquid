@@ -1,0 +1,7 @@
+<div class="account-wrap"><div class="account-header"><h1>Welcome, {{ customer.first_name }}</h1><a href="{{ routes.account_logout_url }}" class="btn btn-ghost">Log out</a></div>
+<div class="account-grid">
+<div class="account-info"><h3>{{ customer.name }}</h3><p>{{ customer.email }}</p>{% if customer.default_address %}<p style="margin-top:12px">{{ customer.default_address | format_address }}</p>{% endif %}<a href="{{ routes.account_addresses_url }}" style="color:var(--oak);font-size:14px;display:inline-block;margin-top:12px">Manage addresses</a></div>
+<div><h2 style="font-family:var(--serif);font-size:22px;margin-bottom:20px;font-weight:400">Order history</h2>
+{% if customer.orders.size > 0 %}<table class="account-table"><tr><th>Order</th><th>Date</th><th>Status</th><th>Total</th></tr>{% for order in customer.orders %}<tr><td><a href="{{ order.customer_url }}">{{ order.name }}</a></td><td>{{ order.created_at | date: '%b %d, %Y' }}</td><td>{{ order.fulfillment_status_label }}</td><td>{{ order.total_price | money }}</td></tr>{% endfor %}</table>{% else %}<p style="color:var(--ink-soft)">You haven't placed any orders yet.</p>{% endif %}</div>
+</div></div>
+{% schema %}{"name":"Account"}{% endschema %}
