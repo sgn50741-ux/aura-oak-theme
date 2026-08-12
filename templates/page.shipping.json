@@ -3,46 +3,17 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "Shipping",
-        "heading": "Shipping & Returns"
+        "eyebrow": "Shipping & returns",
+        "heading": "Delivery details.",
+        "subheading": "Everything you need to know about shipping, returns, and exchanges."
       }
     },
-    "shipping": {
-      "type": "shipping-returns",
-      "settings": {
-        "heading": "Shipping & Returns",
-        "shipping_heading": "Shipping Information",
-        "shipping_text": "<p>We offer fast, reliable shipping on all orders. Most orders ship within 1-2 business days from our Portland studio.</p>",
-        "returns_heading": "Returns & Exchanges",
-        "returns_text": "<p>We want you to love your Aura & Oak products. If you're not completely satisfied, we accept returns within 30 days of delivery on unopened items in original packaging.</p><p>Used candles cannot be returned, but we stand behind our quality. If you experience any issues with your candle, please contact us and we'll make it right.</p>"
-      },
-      "blocks": [
-        {
-          "type": "shipping_option",
-          "settings": {
-            "method": "Standard Shipping",
-            "time": "3-5 business days",
-            "cost": "$7.95 (Free over $75)"
-          }
-        },
-        {
-          "type": "shipping_option",
-          "settings": {
-            "method": "Expedited Shipping",
-            "time": "2 business days",
-            "cost": "$14.95"
-          }
-        },
-        {
-          "type": "shipping_option",
-          "settings": {
-            "method": "Overnight Shipping",
-            "time": "1 business day",
-            "cost": "$24.95"
-          }
-        }
-      ]
+    "main": {
+      "type": "shipping-returns"
     }
   },
-  "order": ["hero", "shipping"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

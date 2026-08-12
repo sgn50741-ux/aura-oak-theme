@@ -4,20 +4,16 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Contact",
-        "heading": "Get in touch"
+        "heading": "Get in touch.",
+        "subheading": "Questions, wholesale inquiries, or just want to say hello? We'd love to hear from you."
       }
     },
-    "contact": {
-      "type": "contact",
-      "settings": {
-        "heading": "Get in touch",
-        "email": "hello@auraandoak.com",
-        "phone": "(503) 555-0142",
-        "address": "Aura & Oak Studio\n1234 NW Flanders Street\nPortland, OR 97209",
-        "hours": "Monday - Friday: 9am - 5pm\nSaturday: 10am - 4pm\nSunday: Closed",
-        "form_heading": "Send us a message"
-      }
+    "main": {
+      "type": "contact"
     }
   },
-  "order": ["hero", "contact"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

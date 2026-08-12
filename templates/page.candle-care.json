@@ -3,27 +3,17 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "Candle Care",
-        "heading": "Candle Care Guide"
+        "eyebrow": "Candle care",
+        "heading": "Make every burn count.",
+        "subheading": "Simple tips to get the most out of your Aura & Oak candles and diffusers."
       }
     },
-    "candle-care": {
-      "type": "candle-care",
-      "settings": {
-        "heading": "Candle Care Guide",
-        "intro": "Follow these simple steps to get the most out of your Aura & Oak candles and diffusers.",
-        "step_title_1": "Trim the wick",
-        "step_text_1": "Always trim your wick to 1/4 inch before lighting. This prevents soot, ensures an even burn, and extends the life of your candle.",
-        "step_title_2": "First burn matters",
-        "step_text_2": "Allow the wax to melt to the edges on the first burn (about 2 hours for our 8 oz candles, 3 hours for 13 oz). This prevents tunneling and ensures an even burn pool.",
-        "step_title_3": "Snuff, don't blow",
-        "step_text_3": "Use a candle snuffer or dip the wick into the wax and straighten it. This preserves the scent, prevents smoke, and keeps your vessel clean.",
-        "safety_heading": "Safety Tips",
-        "safety_text": "<ul><li>Never leave a burning candle unattended</li><li>Keep away from drafts, children, and pets</li><li>Place on a heat-resistant surface</li><li>Don't burn for more than 4 hours at a time</li><li>Stop burning when 1/2 inch of wax remains</li></ul>",
-        "diffuser_heading": "Diffuser Care",
-        "diffuser_text": "<p>Flip the reeds every 1-2 weeks to refresh the scent. Replace reeds every 3-4 months. Keep away from direct sunlight and heat sources. Refill with our aroma oil drops when the liquid is low.</p>"
-      }
+    "main": {
+      "type": "candle-care"
     }
   },
-  "order": ["hero", "candle-care"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

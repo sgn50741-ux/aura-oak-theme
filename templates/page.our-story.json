@@ -3,62 +3,17 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "Our Story",
-        "heading": "The quiet ritual of home.",
-        "subheading": "How a small Portland studio became a practice in mindful living."
+        "eyebrow": "Our story",
+        "heading": "Fragrance as a practice.",
+        "subheading": "How a small Portland studio became obsessed with the quiet power of scent."
       }
     },
-    "story": {
-      "type": "our-story",
-      "settings": {
-        "heading": "Our Story",
-        "body": "<p>We started Aura & Oak in a converted garage in Portland with one candle — Amber & Oakmoss — and a belief that the things we smell every day should be made with as much care as the things we eat and the things we read.</p><p>Seven years later, we're still a small studio, still pouring by hand, still obsessed with the way a scent can make a room feel like home.</p>",
-        "image_url": "https://images.unsplash.com/photo-1603001535220-3b9c4b8a5b8c?w=1200",
-        "value_title_1": "Small batch",
-        "value_text_1": "Every candle poured by hand in our Portland studio.",
-        "value_title_2": "Clean ingredients",
-        "value_text_2": "100% soy wax, phthalate-free fragrances, cotton wicks.",
-        "value_title_3": "Sustainable",
-        "value_text_3": "Refillable vessels, recyclable packaging, carbon-neutral shipping.",
-        "value_title_4": "Community",
-        "value_text_4": "Supporting local artisans and makers in the Pacific Northwest."
-      },
-      "blocks": [
-        {
-          "type": "timeline",
-          "settings": {
-            "year": "2017",
-            "title": "The first pour",
-            "text": "We poured our first candle in a converted garage in Portland."
-          }
-        },
-        {
-          "type": "timeline",
-          "settings": {
-            "year": "2019",
-            "title": "The studio",
-            "text": "Moved into our current studio space in the Pearl District."
-          }
-        },
-        {
-          "type": "timeline",
-          "settings": {
-            "year": "2021",
-            "title": "Ceramic vessels",
-            "text": "Partnered with local ceramicists to create our signature vessels."
-          }
-        },
-        {
-          "type": "timeline",
-          "settings": {
-            "year": "2024",
-            "title": "Today",
-            "text": "Still pouring by hand, still obsessed with the ritual of home."
-          }
-        }
-      ]
-    },
-    "newsletter": { "type": "newsletter" }
+    "timeline": {
+      "type": "our-story"
+    }
   },
-  "order": ["hero", "story", "newsletter"]
+  "order": [
+    "hero",
+    "timeline"
+  ]
 }

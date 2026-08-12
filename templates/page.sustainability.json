@@ -4,32 +4,16 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Sustainability",
-        "heading": "Our Commitment",
-        "subheading": "Fragrance that's good for your home and the planet."
+        "heading": "Made with care, for the planet.",
+        "subheading": "Our commitment to clean ingredients, refillable vessels, and responsible sourcing."
       }
     },
-    "sustainability": {
-      "type": "sustainability",
-      "settings": {
-        "heading": "Our Commitment",
-        "intro": "We believe that the things we bring into our homes should be made with care — for the people who make them, for the spaces where they live, and for the planet we all share.",
-        "stat_number_1": "100%",
-        "stat_label_1": "Soy wax",
-        "stat_number_2": "0",
-        "stat_label_2": "Phthalates",
-        "stat_number_3": "85%",
-        "stat_label_3": "Recyclable packaging",
-        "stat_number_4": "Carbon",
-        "stat_label_4": "Neutral shipping",
-        "commitment_title_1": "Clean Ingredients",
-        "commitment_text_1": "We use only 100% soy wax, phthalate-free fragrances, and cotton wicks. No paraffin, no synthetic dyes, no harmful chemicals.",
-        "commitment_title_2": "Refillable Design",
-        "commitment_text_2": "Our ceramic vessels are designed to be refilled, not discarded. When your candle is done, order a refill and keep the vessel.",
-        "commitment_title_3": "Local Production",
-        "commitment_text_3": "Every candle is hand-poured in our Portland studio, supporting local jobs and reducing our carbon footprint."
-      }
-    },
-    "newsletter": { "type": "newsletter" }
+    "main": {
+      "type": "sustainability"
+    }
   },
-  "order": ["hero", "sustainability", "newsletter"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

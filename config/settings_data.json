@@ -1,1 +1,8 @@
-{ "current": { "bg": "#FAF6F0", "ink": "#211D19", "accent": "#9C6B45", "free_shipping_threshold": 75 } }
+{
+  "current": {
+    "bg": "#FAF6F0",
+    "ink": "#211D19",
+    "accent": "#9C6B45",
+    "free_shipping_threshold": 75
+  }
+}

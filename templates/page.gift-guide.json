@@ -3,37 +3,17 @@
     "hero": {
       "type": "page-hero",
       "settings": {
-        "eyebrow": "Gift Guide",
-        "heading": "Gift Guide"
+        "eyebrow": "Gift guide",
+        "heading": "The art of giving.",
+        "subheading": "Curated collections for every occasion, from housewarmings to holidays."
       }
     },
-    "gift-guide": {
-      "type": "gift-guide",
-      "settings": {
-        "heading": "Gift Guide",
-        "intro": "Thoughtful gifts for every occasion. Our curated collections make it easy to find the perfect present.",
-        "category_title_1": "For the Homebody",
-        "category_desc_1": "Cozy candles, soft textiles, and warm scents for the person who loves nesting.",
-        "category_link_1": "/collections/gift-ideas",
-        "category_title_2": "For the Host",
-        "category_desc_2": "Elegant diffusers, room sprays, and gift sets for the person who loves to entertain.",
-        "category_link_2": "/collections/gift-ideas",
-        "category_title_3": "Luxury Gifts",
-        "category_desc_3": "Premium candles, ceramic vessels, and exclusive scents for the person who appreciates the finer things.",
-        "category_link_3": "/collections/gift-ideas"
-      }
-    },
-    "featured": {
-      "type": "featured-products",
-      "settings": {
-        "eyebrow": "Bestsellers",
-        "heading": "Our most-loved gifts",
-        "subheading": "These are the ones that get gifted again and again.",
-        "handles": "discovery-set-six-mini-candles,evening-ritual-gift-set,santal-noir-soy-candle,terra-ceramic-reed-diffuser",
-        "view_all_label": "View all gifts",
-        "view_all_link": "/collections/gift-ideas"
-      }
+    "main": {
+      "type": "gift-guide"
     }
   },
-  "order": ["hero", "gift-guide", "featured"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }
