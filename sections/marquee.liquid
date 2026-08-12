@@ -1,0 +1,25 @@
+
+<section class="marquee">
+  <div class="marquee-track">
+    {%- for i in (1..2) -%}
+      {%- for item in section.settings.items -%}
+        <span class="marquee-item">{{ item }}</span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Marquee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "items",
+      "label": "Marquee items (comma-separated)",
+      "default": "Hand-poured in Portland,Small batch,100% soy wax,Phthalate-free,Refillable vessels"
+    }
+  ],
+  "presets": [{ "name": "Marquee" }]
+}
+{% endschema %}
