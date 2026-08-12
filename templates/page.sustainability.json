@@ -4,16 +4,19 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Sustainability",
-        "heading": "Made with care, for the long haul.",
-        "subheading": "Our commitment to natural materials, clean burning, and a lighter footprint."
+        "heading": "Made with care, for the planet."
       }
     },
-    "content": {
-      "type": "sustainability-content"
+    "sustainability": {
+      "type": "sustainability"
+    },
+    "newsletter": {
+      "type": "newsletter"
     }
   },
   "order": [
     "hero",
-    "content"
+    "sustainability",
+    "newsletter"
   ]
 }
