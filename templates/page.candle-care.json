@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Care guide",
+        "heading": "The ritual of burning.",
+        "subheading": "How to get the most from your candle \u2014 and a vessel that lives on."
+      }
+    },
+    "content": {
+      "type": "candle-care-content"
+    }
+  },
+  "order": [
+    "hero",
+    "content"
+  ]
+}
