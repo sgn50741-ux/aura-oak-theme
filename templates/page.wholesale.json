@@ -4,16 +4,15 @@
       "type": "page-hero",
       "settings": {
         "eyebrow": "Wholesale",
-        "heading": "Partner with us.",
-        "subheading": "For retailers, hotels, and design-forward spaces."
+        "heading": "Bring Aura & Oak to your space."
       }
     },
-    "content": {
-      "type": "wholesale-content"
+    "wholesale": {
+      "type": "wholesale"
     }
   },
   "order": [
     "hero",
-    "content"
+    "wholesale"
   ]
 }
