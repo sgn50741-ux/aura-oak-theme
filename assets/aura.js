@@ -9,7 +9,7 @@
     return f.replace('{{amount}}', (cents / 100).toFixed(2)).replace('{{amount_no_decimals}}', Math.round(cents / 100));
   };
 
-  // Reveal on scroll
+  /* ===== Reveal on scroll ===== */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { 
       if (e.isIntersecting) { 
@@ -18,17 +18,10 @@
       } 
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  
   $$('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip, .stagger').forEach(el => io.observe(el));
 
-  // Parallax
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    $$('.parallax').forEach(el => {
-      el.style.setProperty('--scroll', scroll);
-    });
-  }, { passive: true });
-
-  // Header scroll state
+  /* ===== Header scroll state ===== */
   const header = $('.site-header');
   if (header) {
     const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
@@ -36,7 +29,7 @@
     onScroll();
   }
 
-  // Mobile menu
+  /* ===== Mobile menu ===== */
   const menuToggle = $('.menu-toggle');
   const mobileMenu = $('.mobile-menu');
   const menuClose = $('.mobile-menu-close');
@@ -46,7 +39,7 @@
     $$('a', mobileMenu).forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('is-open')));
   }
 
-  // Toast
+  /* ===== Toast ===== */
   let toastEl = null;
   function toast(msg) {
     if (!toastEl) {
@@ -60,7 +53,7 @@
     toast._t = setTimeout(() => toastEl.classList.remove('is-shown'), 2800);
   }
 
-  // Cart state & drawer
+  /* ===== Cart state & drawer ===== */
   const drawer = $('.cart-drawer');
   const drawerItems = $('.cart-items');
   const drawerCount = $$('.cart-count');
@@ -160,10 +153,10 @@
   }
   window.addToCart = addToCart;
 
-  // Init cart on load
+  /* Init cart on load */
   fetchCart().then(c => c && renderCartItems(c));
 
-  // PDP: variant picker + add
+  /* ===== PDP: variant picker + add ===== */
   const pdpForm = $('#ProductForm');
   if (pdpForm) {
     const product = JSON.parse(pdpForm.dataset.product);
@@ -221,22 +214,12 @@
     render();
   }
 
-  // FAQ accordion
-  $$('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question?.addEventListener('click', () => {
-      const isOpen = item.classList.contains('is-open');
-      $$('.faq-item').forEach(i => i.classList.remove('is-open'));
-      if (!isOpen) item.classList.add('is-open');
-    });
-  });
-
-  // FAQ category filter
-  $$('.faq-category').forEach(cat => {
-    cat?.addEventListener('click', () => {
-      $$('.faq-category').forEach(c => c.classList.remove('is-active'));
-      cat.classList.add('is-active');
-      const category = cat.dataset.category;
+  /* ===== FAQ accordion ===== */
+  $$('.faq-category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('.faq-category-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const category = btn.dataset.category;
       $$('.faq-item').forEach(item => {
         if (category === 'all' || item.dataset.category === category) {
           item.style.display = '';
@@ -247,7 +230,7 @@
     });
   });
 
-  // Newsletter
+  /* ===== Newsletter ===== */
   const newsForm = $('.newsletter-form');
   if (newsForm) {
     newsForm.addEventListener('submit', async (e) => {
