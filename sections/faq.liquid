@@ -1,53 +1,47 @@
 <section class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Questions?</span>
-      <h2>We've got answers.</h2>
+    <div class="faq-intro reveal">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
     </div>
     
     <div class="faq-categories reveal">
-      <button class="faq-category is-active" data-category="all">All</button>
-      <button class="faq-category" data-category="shipping">Shipping</button>
-      <button class="faq-category" data-category="products">Products</button>
-      <button class="faq-category" data-category="care">Candle Care</button>
-      <button class="faq-category" data-category="returns">Returns</button>
+      {%- for block in section.blocks -%}
+        <button class="faq-category-btn" data-category="{{ block.settings.category | handleize }}">{{ block.settings.category }}</button>
+      {%- endfor -%}
     </div>
     
     <div class="faq-list reveal">
-      <div class="faq-item" data-category="shipping">
-        <div class="faq-question">How long does shipping take?</div>
-        <div class="faq-answer">Orders ship within 1-2 business days from our Portland studio. Standard shipping takes 3-5 business days within the US. International shipping takes 7-14 business days depending on destination.</div>
-      </div>
-      <div class="faq-item" data-category="shipping">
-        <div class="faq-question">Do you offer free shipping?</div>
-        <div class="faq-answer">Yes! We offer complimentary standard shipping on all orders over $75 within the United States.</div>
-      </div>
-      <div class="faq-item" data-category="products">
-        <div class="faq-question">Are your candles made with soy wax?</div>
-        <div class="faq-answer">Yes, all our candles are made with 100% natural soy wax, which is clean-burning, renewable, and biodegradable. We never use paraffin wax.</div>
-      </div>
-      <div class="faq-item" data-category="products">
-        <div class="faq-question">Are your fragrances phthalate-free?</div>
-        <div class="faq-answer">Absolutely. All our fragrance oils are phthalate-free and carefully selected for safety and quality. We prioritize clean, non-toxic ingredients.</div>
-      </div>
-      <div class="faq-item" data-category="care">
-        <div class="faq-question">How do I care for my candle?</div>
-        <div class="faq-answer">Trim the wick to 1/4 inch before each lighting. Allow the wax pool to reach the edge on the first burn (about 2 hours for the 9 oz size) to prevent tunneling. Never burn for more than 4 hours at a time. Snuff, don't blow, to preserve the scent and vessel.</div>
-      </div>
-      <div class="faq-item" data-category="care">
-        <div class="faq-question">How long do your candles burn?</div>
-        <div class="faq-answer">Our 8 oz candles burn for approximately 40-50 hours. Our 13 oz candles burn for approximately 70-80 hours. Actual burn time varies based on care and environment.</div>
-      </div>
-      <div class="faq-item" data-category="returns">
-        <div class="faq-question">What is your return policy?</div>
-        <div class="faq-answer">We accept returns within 30 days of delivery on unopened items in original packaging. If your candle arrives damaged, please contact us within 7 days with photos and we'll send a replacement.</div>
-      </div>
-      <div class="faq-item" data-category="returns">
-        <div class="faq-question">Can I exchange a candle I don't like?</div>
-        <div class="faq-answer">Yes! If you're not satisfied with your purchase, we offer exchanges for unopened items. Contact our customer service team to initiate an exchange.</div>
-      </div>
+      {%- for block in section.blocks -%}
+        <details class="faq-item" data-category="{{ block.settings.category | handleize }}">
+          <summary>{{ block.settings.question }}</summary>
+          <div class="faq-answer">
+            <div class="rte">{{ block.settings.answer }}</div>
+          </div>
+        </details>
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
-{% schema %}{ "name": "FAQ", "presets": [{ "name": "FAQ" }] }{% endschema %}
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "category", "label": "Category", "default": "General" },
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "FAQ" }]
+}
+{% endschema %}
